@@ -6,7 +6,7 @@ layout: post
 Deal w/ it.
 
 
-{% hightlight bash %}
+{% highlight bash %}
 
 for i in $(seq 1 10); do
   local server_name="web-${i}.example.com"
