@@ -3,6 +3,16 @@ title: this is my title
 layout: post
 ---
 
+Blog posts
+----------
+
+{% for post in site.posts %}
+
+- [ {{ post.title }}( {{ post.url }} )
+
+{% endfor %}
+
+
 Sample blog post
 ----------------
 
