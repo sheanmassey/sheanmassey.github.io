@@ -90,6 +90,8 @@ $(document).ready(function(){
             .append('rect')
             .attr('width', rw)
             .attr('height', rh)
+            .attr('rx', 5)
+            .attr('ry', 5)
             .attr('x', function(d, i) {
                 return ( rw + 2 ) * i;
             })
