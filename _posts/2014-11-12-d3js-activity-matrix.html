@@ -104,10 +104,10 @@ $(document).ready(function(){
                 }[d.status];
             });
 
-    var txt = svg.selectAll('g')
+    var txt = grp.selectAll('text')
         .data( data )
-        .append('text')
         .enter()
+            .append('text')
             .attr('x', 0)
             .attr('y', 15)
             .style('font-size', '10px')
