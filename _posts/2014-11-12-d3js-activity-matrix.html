@@ -107,8 +107,8 @@ $(document).ready(function(){
     var txt = svg.selectAll('g')
         .data( data )
         .append('text')
-        .attr('x', 0)
-        .attr('y', 15)
+        .attr('x', - margin.left)
+        .attr('y', 0)
         .style('font-size', '10px')
         .text(function(d){
             return d.patient_iid;
