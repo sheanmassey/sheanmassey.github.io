@@ -87,7 +87,7 @@ $(document).ready(function(){
                     var tooltip_height = $(".tooltip")[0].offsetHeight,
                         tooltip_width = $(".tooltip")[0].offsetWidth;
 
-                tooltip.html(d[1] + " patients on " + d[0].getDate() + "/" + (d[0].getMonth()+1) + "/" + d[0].getFullYear())
+                    tooltip.html("<h1>" + d[1] + " patients</h1> on " + d[0].getDate() + "/" + (d[0].getMonth()+1) + "/" + d[0].getFullYear())
                     .style("left", ( d3.event.pageX - ( tooltip_width / 2) ) + "px") // tooltip width / 2
                     .style("top", ( d3.event.pageY - ( tooltip_height + 8 ) ) + "px"); // tooltip height + 8
             })
