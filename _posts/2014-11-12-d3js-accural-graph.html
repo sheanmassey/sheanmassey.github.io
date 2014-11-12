@@ -84,7 +84,8 @@ $(document).ready(function(){
                     .duration(250)
                     .style("opacity", .9)
                     .style("left", ( d3.event.pageX ) + "px")
-                    .style("top", ( d3.event.pageY - 22) + "px");
+                    .style("top", ( d3.event.pageY - 22) + "px")
+                    .html(d[1] + " patients on " + d[0]);
             })
             .on("mouseout", function(d) {
                 tooltip.transition()
