@@ -1,0 +1,106 @@
+---
+layout: post
+---
+
+<div class="container">
+    <div id="activity_matrix"></div>
+</div>
+
+<script>
+$(document).ready(function(){
+    // $("head").append('<link rel="stylesheet" type="text/css" href="/css/demos/d3js-accural-graph.css">');
+    
+    var data = [
+        {
+            patient_iid: '0001',
+            activities: [
+                { display_name: 'New patient registration', status: 'Succeeded' },
+                { display_name: 'Kit registration', status: 'Succeeded' },  
+                { display_name: 'Info on AURORA metastatic biopsy', status: 'Succeeded' },
+                { display_name: 'Info on second AURORA metastatic biopsy (Optional)', status: 'Succeeded' },
+                { display_name: 'Info on whole blood collection', status: 'Succeeded' },
+                { display_name: 'Info on baseline plasma and serum collection', status: 'Succeeded' },
+                { display_name: 'Info on known germline cancer-predisposing variant', status: 'Succeeded' },
+                { display_name: 'Info on primary tumor', status: 'Succeeded' },
+                { display_name: 'Info on diagnostic metastatic biopsy', status: 'Succeeded' },
+                { display_name: 'Send automatic email for samples shipment request', status: 'Succeeded' },
+                { display_name: 'Sample reception', status: 'Pending' },
+                { display_name: 'Central lab pathology data', status: 'Pending' },
+                { display_name: 'Sequencing data for primary tumor', status: 'Pending' },
+                { display_name: 'Sequencing data for metastatic lesion', status: 'Pending' },
+                { display_name: 'Sequencing data for blood', status: 'Pending' },
+                { display_name: 'CNV data for primary tumor', status: 'Pending' },
+                { display_name: 'CNV data for metastatic lesion', status: 'Pending' },
+                { display_name: 'Molecular Advisory Board signoff', status: 'Pending' },
+            ],
+        },
+        {
+            patient_iid: '0002',
+            activities: [
+                { display_name: 'New patient registration', status: 'Succeeded' },
+                { display_name: 'Kit registration', status: 'Succeeded' },  
+                { display_name: 'Info on AURORA metastatic biopsy', status: 'Succeeded' },
+                { display_name: 'Info on second AURORA metastatic biopsy (Optional)', status: 'Succeeded' },
+                { display_name: 'Info on whole blood collection', status: 'Succeeded' },
+                { display_name: 'Info on baseline plasma and serum collection', status: 'Succeeded' },
+                { display_name: 'Info on known germline cancer-predisposing variant', status: 'Succeeded' },
+                { display_name: 'Info on primary tumor', status: 'Succeeded' },
+                { display_name: 'Info on diagnostic metastatic biopsy', status: 'Succeeded' },
+                { display_name: 'Send automatic email for samples shipment request', status: 'Succeeded' },
+                { display_name: 'Sample reception', status: 'Pending' },
+                { display_name: 'Central lab pathology data', status: 'Pending' },
+                { display_name: 'Sequencing data for primary tumor', status: 'Pending' },
+                { display_name: 'Sequencing data for metastatic lesion', status: 'Pending' },
+                { display_name: 'Sequencing data for blood', status: 'Pending' },
+                { display_name: 'CNV data for primary tumor', status: 'Pending' },
+                { display_name: 'CNV data for metastatic lesion', status: 'Pending' },
+                { display_name: 'Molecular Advisory Board signoff', status: 'Pending' },
+            ],
+        },
+    ]
+
+    // find the number of activities by counting the activity records of the first
+    // patient data record:
+    var activities_count = data[0].activities.length;
+
+    var margin = { top: 100, right: 50, bottom: 50, left: 50 };
+    var rw = 26,
+        rh = 16;
+
+    var width = 960 - margin.left - margin.right,
+        height = ( ( rh + 2 ) * data.length ) + margin.top + margin.bottom;
+
+    var svg = d3.select("#activity_matrix").append("svg")
+        .attr('width', width)
+        .attr('height', height);
+
+    var grp = d3.selectAll('g')
+        .data( data )
+        .enter()
+            .append('g')
+            .attr('transform', function(d, i) {
+                return 'translate(' + margin.left + ',' + ( margin.top + ((2+rh) * i) ) + ')';
+            });
+
+    grp.selectAll('rect')
+        .data(function(d, i) {
+            return d.activities;
+        })
+        .enter()
+            .append('rect')
+            .attr('width', 'rw')
+            .attr('height', 'rh')
+            .attr('x', function(d, i) {
+                return ( rh + 2 ) * i;
+            })
+            .style('fill', function(d){
+                return {
+                    'Succeeded': 'green',
+                    'Pending': 'orange',
+                    'Cancelled': 'black',
+                    // ...
+                }[d.status];
+            });
+});
+</script>
+
