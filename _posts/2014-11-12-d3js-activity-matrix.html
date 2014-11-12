@@ -118,7 +118,7 @@ $(document).ready(function(){
         .data(function() {
             display_names = [];
             for (var act_index = 0; act_index < data[0].activities.length; act_index++) {
-                display_names.push( data[0].activities[act_index] );
+                display_names.push( data[0].activities[act_index].display_name );
             }
             return display_names;
         })
@@ -132,7 +132,7 @@ $(document).ready(function(){
             })
             .attr('font-size', '12px')
             .attr(function(d, i){
-                return 'rotate(-45 ' + ( margin.top + ( i * ( rw + 2 ) ) ) + ',' + margin.top + ')';
+                return 'rotate(-45 ' + ( margin.left + ( i * ( rw + 2 ) ) ) + ',' + margin.top + ')';
             })
             .text(function(d) {
                 return d;
