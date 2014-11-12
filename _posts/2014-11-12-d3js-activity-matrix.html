@@ -124,14 +124,10 @@ $(document).ready(function(){
         console.log('here...'); 
 
         svg.append('text')
-        .attr('x', function(d, i){
-            return margin.left + ( i * ( rw + 2 ) );
-        })
-        .attr('y', function(d, i){
-            return margin.top;
-        })
+        .attr('x', margin.left + ( i * ( rw + 2 ) ))
+        .attr('y', margin.top)
         .attr('font-size', '12px')
-        .attr('transform', function(d, i){
+        .attr('transform', function(){
             return 'rotate(-45 ' + ( margin.left + ( i * ( rw + 2 ) ) ) + ',' + margin.top + ')';
         })
         .text(display_names[i]);
