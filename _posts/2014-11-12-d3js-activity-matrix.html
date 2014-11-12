@@ -59,6 +59,14 @@ $(document).ready(function(){
         },
     ]
 
+    /**
+     * falling back to "normal js" for this, there must be a nicer way..
+     */
+    var display_names = [];
+    for (var act_index = 0; act_index < data[0].activities.length; act_index++) {
+        display_names.push( data[0].activities[act_index].display_name );
+    }
+
     // find the number of activities by counting the activity records of the first
     // patient data record:
     var activities_count = data[0].activities.length;
@@ -67,7 +75,7 @@ $(document).ready(function(){
     var rw = 26,
         rh = 16;
 
-    var width = 960 - margin.left - margin.right,
+    var width = margin.left + margin.right + ( display_names.length * ( 2 + rw ) ),
         height = ( ( rh + 2 ) * data.length ) + margin.top + margin.bottom;
 
     var svg = d3.select("#activity_matrix").append("svg")
@@ -115,14 +123,10 @@ $(document).ready(function(){
         });
 
 
+
     /**
      * falling back to "normal js" for this, there must be a nicer way..
      */
-    var display_names = [];
-    for (var act_index = 0; act_index < data[0].activities.length; act_index++) {
-        display_names.push( data[0].activities[act_index].display_name );
-    }
-
     for (i in display_names) {
         svg.append('text')
         .attr('x', margin.left + ( i * ( rw + 2 ) ) + ( rw / 2 ) )
