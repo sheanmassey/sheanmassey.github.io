@@ -83,9 +83,13 @@ $(document).ready(function(){
                 tooltip.transition()
                     .duration(250)
                     .style("opacity", .6);
+
+                    var tooltip_height = $(".tooltip").offsetHeight,
+                        tooltip_width = $(".tooltip").offsetWidth;
+
                 tooltip.html(d[1] + " patients on " + d[0].getDate() + "/" + (d[0].getMonth()+1) + "/" + d[0].getFullYear())
-                    .style("left", ( d3.event.pageX - 100 ) + "px") // tooltip width / 2
-                    .style("top", ( d3.event.pageY - 32) + "px"); // tooltip height + 12
+                    .style("left", ( d3.event.pageX - ( tooltip_width / 2) ) + "px") // tooltip width / 2
+                    .style("top", ( d3.event.pageY - ( tooltip_height + 8 ) ) + "px"); // tooltip height + 8
             })
             .on("mouseout", function(d) {
                 tooltip.transition()
