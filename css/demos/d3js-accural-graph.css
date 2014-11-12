@@ -19,13 +19,12 @@
 div.tooltip {
     position: absolute;
     text-align: center;
-    width: 200px;
-    height: 20px;
     font: 12px sans-serif;
-    padding: 4px 0;
+    padding: 4px 5px;
     border: 0px;
     border-radius: 5px;
     pointer-events: none;
     background: black;
     color: white;
+    font-weight: bold;
 }
