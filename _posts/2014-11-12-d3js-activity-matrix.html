@@ -104,7 +104,7 @@ $(document).ready(function(){
                 }[d.status];
             });
 
-    var txt = svg.selectAll('g')
+    svg.selectAll('g')
         .data( data )
         .append('text')
         .attr('x', - margin.left)
@@ -113,6 +113,28 @@ $(document).ready(function(){
         .text(function(d){
             return d.patient_iid;
         });
+
+    svg.selectAll('text')
+        .data(function() {
+            display_names = [];
+            for (var act_index = 0; act_index < data[0].activities.length; act_index++) {
+                display_names.push( data[0].activities[act_index] );
+            }
+            return display_names;
+        })
+        .enter()
+            .append('text')
+            .attr('x', function(d, i){
+                return margin.left + ( i * ( rw + 2 ) );
+            })
+            .attr('y', function(d, i){
+                return margin.top;
+            })
+            .attr('font-size', '12px')
+            .attr(function(d, i){
+                return 'rotate(-45 ' + ( margin.top + ( i * ( rw + 2 ) ) ) + ',' + margin.top + ')';
+            })
+            .text(d);
 });
 </script>
 
