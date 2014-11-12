@@ -134,7 +134,9 @@ $(document).ready(function(){
             .attr(function(d, i){
                 return 'rotate(-45 ' + ( margin.top + ( i * ( rw + 2 ) ) ) + ',' + margin.top + ')';
             })
-            .text(d);
+            .text(function(d) {
+                return d;
+            });
 });
 </script>
 
