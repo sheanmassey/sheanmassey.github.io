@@ -1,0 +1,39 @@
+---
+layout: post
+---
+
+<div class="container">
+
+Link your public ssh key on your github account:
+{% highlight bash %}
+cat ~/.ssh/id_rsa.pub
+{% endhighlight %}
+Save the with "Add SSH key" here: <a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a>.
+
+Clone your repo:
+{% highlight bash %}
+git clone git@github.com/<username>/<reponame>.git
+{% endhighlight %}
+
+For example:
+{% highlight bash %}
+git clone git@github.com/sheanmassey/sheanmassey.github.io.git
+{% endhighlight %}
+
+See diff of unstaged changes:
+{% highlight bash %}
+git diff 
+git diff | vim -
+{% endhighlight %}
+
+Committing all modified files:
+{% highlight bash %}
+git commit -a -m "this is my commit message"
+{% endhighlight %}
+
+Pushing your changes to github:
+{% highlight bash %}
+git push
+{% endhighlight %}
+
+</div>
