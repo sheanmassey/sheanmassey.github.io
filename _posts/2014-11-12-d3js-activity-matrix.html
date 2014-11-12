@@ -90,7 +90,7 @@ $(document).ready(function(){
     // patient data record:
     var activities_count = data[0].activities.length;
 
-    var margin = { top: 250, right: 120, bottom: 50, left: 50 };
+    var margin = { top: 230, right: 120, bottom: 50, left: 50 };
     var rw = 26,
         rh = 16;
 
@@ -129,6 +129,14 @@ $(document).ready(function(){
                     'Cancelled': 'black',
                     // ...
                 }[d.status];
+            })
+            .on("mouseover", function(d){
+                d3.select(this).attr('data-fill', d3.select(this).style('fill'));
+                d3.select(this).style('fill', 'pink');
+            })
+            .on("mouseout", function(d){
+                d3.select(this).style('fill', d3.select(this).attr('data-fill'));
+                d3.select(this).attr('data-fill', null);
             });
 
     svg.selectAll('g')
@@ -156,7 +164,6 @@ $(document).ready(function(){
         })
         .text(display_names[i]);
     }
-
 });
 </script>
 
