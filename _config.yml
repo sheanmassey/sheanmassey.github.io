@@ -1,5 +1,6 @@
 paginate: 10
 pygments: true
+highlighter: pygments
 safe: true
 permalink: /:year/:month/:title.html
 relative_permalinks: false
