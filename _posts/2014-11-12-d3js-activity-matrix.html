@@ -63,7 +63,7 @@ $(document).ready(function(){
     // patient data record:
     var activities_count = data[0].activities.length;
 
-    var margin = { top: 100, right: 50, bottom: 50, left: 50 };
+    var margin = { top: 150, right: 50, bottom: 50, left: 50 };
     var rw = 26,
         rh = 16;
 
@@ -115,24 +115,23 @@ $(document).ready(function(){
         });
 
 
+    /**
+     * falling back to "normal js" for this, there must be a nicer way..
+     */
     var display_names = [];
     for (var act_index = 0; act_index < data[0].activities.length; act_index++) {
         display_names.push( data[0].activities[act_index].display_name );
     }
 
     for (i in display_names) {
-        console.log('here...'); 
-
         svg.append('text')
-        .attr('x', margin.left + ( i * ( rw + 2 ) ))
+        .attr('x', margin.left + ( i * ( rw + 2 ) ) + ( rw / 2 ) )
         .attr('y', margin.top)
         .attr('font-size', '12px')
         .attr('transform', function(){
             return 'rotate(-45 ' + ( margin.left + ( i * ( rw + 2 ) ) ) + ',' + margin.top + ')';
         })
         .text(display_names[i]);
-
-        console.log('eol');
     }
 
 });
