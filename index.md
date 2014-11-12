@@ -3,8 +3,8 @@ title: this is my title
 layout: post
 ---
 
-deded
-=====
+Sample blog post
+----------------
 
 {% highlight bash %}
 
