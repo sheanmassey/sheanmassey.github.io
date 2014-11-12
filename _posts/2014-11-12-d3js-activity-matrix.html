@@ -114,14 +114,14 @@ $(document).ready(function(){
             return d.patient_iid;
         });
 
-    svg.data(function() {
-            display_names = [];
-            for (var act_index = 0; act_index < data[0].activities.length; act_index++) {
-                display_names.push( data[0].activities[act_index].display_name );
-            }
-            return display_names;
-        })
-        .append('text')
+
+    var display_names = [];
+    for (var act_index = 0; act_index < data[0].activities.length; act_index++) {
+        display_names.push( data[0].activities[act_index].display_name );
+    }
+
+    for (i in display_names) {
+        svg.append('text')
         .attr('x', function(d, i){
             return margin.left + ( i * ( rw + 2 ) );
         })
@@ -135,6 +135,8 @@ $(document).ready(function(){
         .text(function(d) {
             return d;
         });
+    }
+
 });
 </script>
 
