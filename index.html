@@ -1,0 +1,20 @@
+---
+title: this is my title
+layout: page
+---
+
+<ul>
+{% for post in site.posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
+
+
+{% highlight bash %}
+
+for i in $(seq 1 10); do
+  local server_name="web-${i}.example.com"
+  ssh $server_name
+done
+
+{% endhighlight %}
