@@ -131,7 +131,7 @@ $(document).ready(function(){
                 return margin.top;
             })
             .attr('font-size', '12px')
-            .attr(function(d, i){
+            .attr('transform', function(d, i){
                 return 'rotate(-45 ' + ( margin.left + ( i * ( rw + 2 ) ) ) + ',' + margin.top + ')';
             })
             .text(function(d) {
