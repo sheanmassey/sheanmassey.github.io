@@ -67,6 +67,25 @@ $(document).ready(function(){
         display_names.push( data[0].activities[act_index].display_name );
     }
 
+    // generate some random patients with random statuses ( 10 to 40 pats ):
+    var num_patients = Math.floor(10 + (Math.random() * 40));
+    for ( i = 0; i < num_patients; i++ ) {
+        patient = {}
+        patient.patient_iid = 'xxx' + i;
+        patient.activities = [];
+        for (m in display_names) {
+            act = {}
+            act.display_name = display_names[m];
+            act.status = {
+                1: 'Succeeded',
+                2: 'Pending',
+                3: 'Cancelled',
+            }[ Math.floor( 1 + ( Math.random() * 3 ) ) ];
+            patient.activities.push(act);
+        }
+        data.push(patient);
+    }
+
     // find the number of activities by counting the activity records of the first
     // patient data record:
     var activities_count = data[0].activities.length;
