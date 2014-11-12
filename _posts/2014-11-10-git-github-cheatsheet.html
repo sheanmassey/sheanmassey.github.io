@@ -12,32 +12,40 @@ cat ~/.ssh/id_rsa.pub
 Save it with "Add SSH key" here: <a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a>. This will allow you to push using your ssh key.
 </p>
 
-<blockquote>
+<p>
 Clone your repo:
 {% highlight bash %}
 git clone git@github.com/<username>/<reponame>.git
 {% endhighlight %}
-</blockquote>
+</p>
 
+<p>
 For example:
 {% highlight bash %}
 git clone git@github.com/sheanmassey/sheanmassey.github.io.git
 {% endhighlight %}
+</p>
 
+<p>
 See diff of unstaged changes:
 {% highlight bash %}
 git diff 
 git diff | vim -
 {% endhighlight %}
+</p>
 
+<p>
 Committing all modified files:
 {% highlight bash %}
 git commit -a -m "this is my commit message"
 {% endhighlight %}
+</p>
 
+<p>
 Pushing your changes to github:
 {% highlight bash %}
 git push
 {% endhighlight %}
+</p>
 
 </div>
