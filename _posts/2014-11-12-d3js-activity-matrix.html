@@ -121,6 +121,8 @@ $(document).ready(function(){
     }
 
     for (i in display_names) {
+        console.log('here...'); 
+
         svg.append('text')
         .attr('x', function(d, i){
             return margin.left + ( i * ( rw + 2 ) );
@@ -132,9 +134,9 @@ $(document).ready(function(){
         .attr('transform', function(d, i){
             return 'rotate(-45 ' + ( margin.left + ( i * ( rw + 2 ) ) ) + ',' + margin.top + ')';
         })
-        .text(function(d) {
-            return d;
-        });
+        .text(display_names[i]);
+
+        console.log('eol');
     }
 
 });
