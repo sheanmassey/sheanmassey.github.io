@@ -3,7 +3,8 @@ title: this is my title
 layout: post
 ---
 
-Deal w/ it.
+Some catchy title
+#################
 
 {% highlight bash %}
 
