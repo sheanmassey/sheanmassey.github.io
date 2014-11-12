@@ -103,6 +103,17 @@ $(document).ready(function(){
                     // ...
                 }[d.status];
             });
+
+    var txt = svg.selectAll('g')
+        .data( data )
+        .enter()
+            .append('text')
+            .attr('x', 0)
+            .attr('y', 15)
+            .style('font-size', '10px')
+            .text(function(d){
+                return d.patient_iid;
+            });
 });
 </script>
 
