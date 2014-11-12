@@ -41,7 +41,7 @@ $(document).ready(function(){
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .tickSize(-height).tickSubdivide(true)
+        .tickSize(-height - 2).tickSubdivide(true)
         .orient("bottom");
 
     var yAxis = d3.svg.axis()
