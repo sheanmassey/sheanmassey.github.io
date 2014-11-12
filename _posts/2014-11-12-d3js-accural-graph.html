@@ -84,8 +84,8 @@ $(document).ready(function(){
                     .duration(250)
                     .style("opacity", .6);
 
-                    var tooltip_height = $(".tooltip").offsetHeight,
-                        tooltip_width = $(".tooltip").offsetWidth;
+                    var tooltip_height = $(".tooltip")[0].offsetHeight,
+                        tooltip_width = $(".tooltip")[0].offsetWidth;
 
                 tooltip.html(d[1] + " patients on " + d[0].getDate() + "/" + (d[0].getMonth()+1) + "/" + d[0].getFullYear())
                     .style("left", ( d3.event.pageX - ( tooltip_width / 2) ) + "px") // tooltip width / 2
