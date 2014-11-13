@@ -3,7 +3,7 @@ layout: post
 ---
 
 <div class="container">
-    <div id="activity_matrix" class="center-block"></div>
+    <div id="activity_matrix"></div>
 </div>
 
 <script>
@@ -98,6 +98,7 @@ $(document).ready(function(){
         height = ( ( rh + 2 ) * data.length ) + margin.top + margin.bottom;
 
     var svg = d3.select("#activity_matrix").append("svg")
+        .attr('class', 'center-block')
         .attr('width', width)
         .attr('height', height);
 
