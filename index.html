@@ -3,71 +3,15 @@ title: this is my title
 layout: page
 ---
 
+<div class="jumbotron">
+    <h1>{{ site.title }}</h1>
+    <p>This is my blog. There are many like it but this one is mine.</p>
+</div>
 
-<div id="life-matrix"></div>
-
-<script>
-    $(document).ready(function(){
-        var width = 800,
-            height = 200,
-            cellw = 20,
-            cellh = 20;
-
-        var svg = d3.select("#life-matrix")
-            .data(function(){
-                var cells = [],
-                    x_cells = width / cellw,
-                    y_cells = height / cellh;
-
-                var rows = [];
-                for ( var x = 0; x < x_cells; x++) {
-                    var row = [];
-                    for (var y = 0; y < y_cells; y++) {
-                        row.push(false);
-                    }
-                    rows.push(row);
-                }
-                return rows;
-            })
-            .append("svg")
-                .attr("height", height)
-                .attr("width", width);
-
-        var rows = svg.selectAll("g")
-            .enter()
-            .append("g")
-                .attr("width", width)
-                .attr("height", cellh)
-                .attr("x", 0)
-                .attr("y", function(d, i){
-                    return i * cellh;
-                })
-                .style("fill", function(d,i){
-                    return ( i % 2 == 0 ) ? "blue" : "pink";
-                });
-        
-        var cells = rows.selectAll("g")
-            .enter()
-                .append("g")
-                .attr("width", cellw)
-                .attr("height", cellh);
-                // .attr("x", function(d, i)
-                
-    });
-</script>
-
+<h3>Blog posts:</h3>
 <ul>
 {% for post in site.posts %}
     <li><a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
 
-
-{% highlight bash %}
-
-for i in $(seq 1 10); do
-  local server_name="web-${i}.example.com"
-  ssh $server_name
-done
-
-{% endhighlight %}
