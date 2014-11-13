@@ -124,9 +124,13 @@ $(document).ready(function(){
                 return ( rw + 2 ) * i;
             })
             .style('fill', function(d){
-                return {
-                    'Succeeded': 'green',
-                    'Pending': 'orange',
+                return { 
+                    // verify real keys
+                    'Succeeded': '#00800',
+                    'To do': '#0000ff',
+                    'To do (urgent)': '#ff0000',
+                    'Pending': '#ffa500',
+                    'Planned': '#7f7f7f',
                     'Cancelled': 'black',
                     // ...
                 }[d.status];
@@ -149,8 +153,6 @@ $(document).ready(function(){
         .text(function(d){
             return d.patient_iid;
         });
-
-
 
     /**
      * falling back to "normal js" for this, there must be a nicer way..
