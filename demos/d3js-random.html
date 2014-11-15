@@ -13,8 +13,9 @@ $(document).ready(function(){
         width = 800,
         height = 600;
 
-    var scale = d3.scale.category20c()
-        .domain([0, width * height]);
+    // var scale = d3.scale.quantize()
+    //     .domain([0, width * height]);
+    var col = d3.interpolateRgb(0, (width*height));
 
     var svg = d3.select("#area").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -22,7 +23,7 @@ $(document).ready(function(){
         .on("mousemove", function(){
             var coords = d3.mouse(this);
             var color_code = coords[0] * coords[1];
-            d3.select(this).style("background-color", scale(color_code));
+            d3.select(this).style("background-color", col(color_code));
         });
 });
 </script>
