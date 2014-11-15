@@ -16,7 +16,7 @@ $(document).ready(function(){
     var col = d3.scale.linear()
         .domain([0, width * height])
         .interpolate(d3.interpolateRgb)
-        .range(["#fff", "#000"]);
+        .range(["#f00", "#00f"]);
     // var col = d3.interpolateRgb(0, (width*height));
 
     var svg = d3.select("#area").append("svg")
