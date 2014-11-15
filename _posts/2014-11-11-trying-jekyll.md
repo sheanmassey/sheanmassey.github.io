@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: demo
 ---
 
 {% highlight python %}
