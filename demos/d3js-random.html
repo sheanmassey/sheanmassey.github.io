@@ -1,0 +1,23 @@
+---
+title: random
+layout: page
+---
+
+<div class="container">
+    <div id="area"></div>
+</div>
+
+<script>
+$(document).ready(function(){
+    var margin = {top: 0, right:0, bottom: 0, left: 0},
+        width = 800,
+        height = 600;
+
+    var svg = d3.select("#area").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .on("mousemove", function(){
+            console.log( d3.mouse(this) );
+        });
+});
+</script>
