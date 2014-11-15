@@ -13,11 +13,16 @@ $(document).ready(function(){
         width = 800,
         height = 600;
 
+    var scale = d3.scale.category20c()
+        .domain([0, width * height]);
+
     var svg = d3.select("#area").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .on("mousemove", function(){
-            console.log( d3.mouse(this) );
+            var coords = d3.mouse(this);
+            var color_code = coords[0] * coords[1];
+            d3.select(this).style("background-color", scale(color_code));
         });
 });
 </script>
