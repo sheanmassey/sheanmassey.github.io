@@ -13,9 +13,11 @@ $(document).ready(function(){
         width = 800,
         height = 600;
 
-    // var scale = d3.scale.quantize()
-    //     .domain([0, width * height]);
-    var col = d3.interpolateRgb(0, (width*height));
+    var col = d3.scale.linear()
+        .domain([0, width * height])
+        .interpolate(d3.interpolateRgb)
+        .range(["#fff", "#000"]);
+    // var col = d3.interpolateRgb(0, (width*height));
 
     var svg = d3.select("#area").append("svg")
         .attr("width", width + margin.left + margin.right)
