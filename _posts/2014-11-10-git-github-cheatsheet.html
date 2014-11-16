@@ -46,3 +46,24 @@ Pushing your changes to github:
 git push
 {% endhighlight %}
 </p>
+
+<p>
+You'll almost always branch from master. Branching allows you isolate a "set of changes". I like to branch on every new feature or fix. To list your branches you use:
+{% highlight bash %}
+git branch
+{% endhighlight %}
+</p>
+
+<p>
+To create a new branch use:
+{% highlight bash %}
+git branch my-new-branch
+git checkout my-new-branch
+{% endhighlight %}
+
+Or the shortcut:
+{% highlight bash %}
+git checkout -b my-new-branch
+{% endhighlight %}
+</p>
+
