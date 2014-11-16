@@ -7,13 +7,13 @@ layout: page
 
 <script>
 $(document).ready(function(){
-    var xcount = 50,
-        ycount = 70,
-        width = 800,
-        height = 600,
+    var xcount = 80,
+        ycount = 80,
+        width = 1000,
+        height = 1000,
         cellw = width / xcount,
         cellh = height / ycount,
-        delay = 200,
+        delay = 350,
         cell_statemap = new Array();
 
     var xscale = d3.scale.linear()
@@ -111,7 +111,7 @@ $(document).ready(function(){
         .enter().append("rect")
             .attr("stroke", "none")
             .attr("fill", function(d) {
-                return d.state ? "black" : "white";
+                return d.state ? "#333" : "yellow";
             })
             .attr("x", function(d) { return xscale(d.x); })
             .attr("y", function(d) { return yscale(d.y); })
@@ -123,7 +123,7 @@ $(document).ready(function(){
         d3.selectAll("rect")
             .data(flatten(cell_statemap))
             .transition()
-                .attr("fill", function(d) { return d.state ? "black" : "white"; })
+                .attr("fill", function(d) { return d.state ? "#333" : "yellow"; })
                 .delay(delay)
                 .duration(200);
     }
