@@ -101,7 +101,7 @@ $(document).ready(function(){
         .attr("viewBox", "0 0 " + width + " " + height)
         .attr("preserveAspectRatio", "xMidYMid meet");
 
-    cell_statemap = next_generation();
+    cell_statemap = next_generation(true);
 
     // create initial state:
     svg.selectAll("rect")
