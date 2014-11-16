@@ -70,7 +70,7 @@ $(document).ready(function(){
         return next_cell_statemap;
     };
 
-    var animate = function() {
+    function animate() {
         cell_statemap = next_generation();
         d3.selectAll("rect")
             .data(flatten(cell_statemap))
@@ -78,7 +78,7 @@ $(document).ready(function(){
                 .attr("fill", function(d) { return d.state ? "black" : "white"; })
                 .delay(delay)
                 .duration(200);
-    };
+    }
 
     setInterval("animate()", delay);
 });
