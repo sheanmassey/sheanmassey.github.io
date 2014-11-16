@@ -26,6 +26,7 @@ $(document).ready(function(){
 
     var flatten = function(statemep) {
         var r = [];
+
         for (x = 0; x < xcount; x++) {
             for (y = 0; y < ycount; y++) {
                 r.push({
@@ -40,6 +41,7 @@ $(document).ready(function(){
 
     var next_generation = function(random) {
         var next_cell_statemap = new Array();
+
         if (random) {
             // ...
             for (var x = 0; x < xcount; x++) {
@@ -125,7 +127,7 @@ $(document).ready(function(){
             .transition()
                 .attr("fill", function(d) { return d.state ? "#333" : "yellow"; })
                 .delay(0)
-                .duration(500);
+                .duration(0);
     }
 
     setInterval(function(){animate();}, delay);
