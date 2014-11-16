@@ -96,7 +96,7 @@ $(document).ready(function(){
         return next_cell_statemap;
     };
 
-    var svg = d3.select("#viz").append("svg")
+    var svg = d3.select("body").append("svg")
         .attr("id", "svgelm")
         .attr("viewBox", "0 0 " + width + " " + height)
         .attr("preserveAspectRatio", "xMidYMid meet");
