@@ -4,7 +4,8 @@ layout: page
 ---
 
 <div class="jumbotron">
-    <h1>{{ site.title }}</h1>
+    <!--<h1>{{ site.title }}</h1>-->
+    <h1>code. hack <span id="title_it">it</span>.</h1>
     <p class="nice-font">this is my blog. there are many like it but this one is mine.</p>
 </div>
 
@@ -29,19 +30,34 @@ layout: page
 
 <script>
 $(document).ready(function(){
-    var animate = function() {
-        d3.select("div.jumbotron").transition()
+    // var animate = function() {
+    //     d3.select("div.jumbotron").transition()
+    //         .duration(1000)
+    //         .style("box-shadow", "10px 10px 5px #bbb")
+    //         .style("text-shadow", "5px 5px 2px #000").transition()
+    //             .duration(1000)
+    //             .style("box-shadow", "-10px -10px 5px #bbb")
+    //             .style("text-shadow", "-5px -5px 2px #000").transition()
+    //                 .duration(1000)
+    //                 .style("box-shadow", "none")
+    //                 .style("text-shadow", "none");
+    // };
+    var animate = function(){
+        d3.select("#title_it")
+            .transition()
             .duration(1000)
-            .style("box-shadow", "10px 10px 5px #bbb")
-            .style("text-shadow", "5px 5px 2px #000").transition()
-                .duration(1000)
-                .style("box-shadow", "-10px -10px 5px #bbb")
-                .style("text-shadow", "-5px -5px 2px #000").transition()
-                    .duration(1000)
-                    .style("box-shadow", "none")
-                    .style("text-shadow", "none");
+            .style("color", function(){
+                return [
+                    "red",
+                    "purple",
+                    "pink",
+                    "white"
+                ][ Math.floor(Math.random() * 6) ];
+            });
+
     };
+
     animate();
-    d3.timer(function(){ animate(); }, 8000);
+    d3.timer(function(){ animate(); }, 2000);
 });
 </script>
