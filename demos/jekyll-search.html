@@ -1,0 +1,20 @@
+---
+layout: page
+---
+
+<div id="progress"></div>
+
+<script>
+$(document).ready(function(){
+    var sitemap_url = "/js/sitemap.json";
+    var tags = new Array();
+    $.ajax({
+        url: sitemap_url,
+        context: $("#progress")
+    }).done(function(data){
+        $(this).addClass("alert alert-primary");
+        $(this).text(data);
+        console.log(date);
+    });
+});
+</script>
