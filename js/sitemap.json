@@ -1,0 +1,17 @@
+---
+---
+{
+    "posts": [
+        {% for post in site.posts %}
+            {
+                "title": "{{ post.title }}",
+                "tags": [
+                    {% for tage in post.tags %}
+                        "{{ tag }}",
+                    {% endfor %}
+                ],
+                "href": "{{ post.url }}",
+            },
+        {% endfor %}
+    ],
+}
