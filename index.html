@@ -31,16 +31,17 @@ layout: page
 $(document).ready(function(){
     var animate = function() {
         d3.select("div.jumbotron").transition()
-            .duration(2000)
+            .duration(1000)
             .style("box-shadow", "10px 10px 5px #bbb")
             .style("text-shadow", "10px 10px 2px #000").transition()
-                .duration(2000)
+                .duration(1000)
                 .style("box-shadow", "10px 0px 5px #bbb")
                 .style("text-shadow", "10px 0px 2px #000").transition()
-                    .duration(2000)
+                    .duration(1000)
                     .style("box-shadow", "none")
                     .style("text-shadow", "none");
     };
+    animate();
     d3.timer(function(){ animate(); }, 8000);
 });
 </script>
