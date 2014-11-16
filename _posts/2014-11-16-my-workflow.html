@@ -1,0 +1,58 @@
+---
+layout: post
+tags: workflow development team git vagrant ubuntu ansible
+---
+
+<p>
+My development environment has completely changed in the last 6 months and all for the best.
+</p>
+
+<p>
+Moving from subversion to git for team developed projects has been one of the best changes I've made in a while. Even after 3+ years of near daily encounters with svn I still managed to screw up merges frequently. Most commands just never felt intuitive. Not to mention the speed. It felt like the only possible option to work <i>effectively</i> with it is via GUIs. I don't like GUIs. Then I met <a href="http://git-scm.com/">git</a> in combo with the now famous <a href="https://github.com/">GitHub</a>.
+</p>
+
+<p>
+It all starts with <span class="label label-default">origin/master</span> which we consider to be production worthy. When ever there's a new feature development request or bug report, the developer responsible of the task creates a branch off of <span class="label label-default">origin/master</span>. We also prefix the branch with the branches "purpose":
+
+{% highlight bash %}
+git checkout master
+git pull
+git checkout -b feature-a-short-descriptive-name-and-ticket-id # or bugfix-ticket-id
+{% endhighlight %}
+
+Once the feature/fix is ready for review we push the new branch to github. Then we create a <a href="https://help.github.com/articles/using-pull-requests/">pull request</a>.
+
+{% highlight bash %}
+git push
+{% endhighlight %}
+
+Pull requests integrate nicely into workflows where peer reviews required. IMHO nothing should go to prodution without at least 1 peer review, no matter how simple the change may seem.
+</p>
+
+<p>
+Another big change I've made is using ansible for provisioning. After seeing CFEngine, Puppet, and Chef it's been a real pleasure working with ansible. The learning curve was hard on me at first, but as light was shining bright on the other side. Taking out the need for an agent between the deployer and the target machine had 1 nice benefit: less moving parts == less crashes. I've seen too many dead puppet agents. Getting them out of the equation was easy with ansible.
+Writing ansible playbooks feels like writing bash. Except it's cleaner and all the error handing (90% of your bash, right?) is done for you. And you have powerful variables. And role based config. And location based config. And templates... And eveything else you'd ever need, because worse case scenerio: you can just run the raw bash into ansible scripts.
+</p>
+
+<p>
+Running the same desktop OS as the server OS is also nice advantage. Ubuntu 14.04 on both sides has really sped up certain tasks like package discovery and running identical package version on both sides. It also allows me to quickly test scripts locally and then rerun thm against the production databasese effortlessly.
+Even though I run the same OS on both sides, for running test suites vagrant has proven valuable. It allows me to *really* copy the production server. It's also provisioned using the exact same ansible script that provisions production. That in itsself is very useful, especially when I'm testing changes the ansible scripts.
+
+For vagrant, I usually create and destroy at least once a day. This way I force myself to rerun the provisioning script and be sure I'm working with an up to date copy.
+
+For quick iterations between writing code and testing, I can skip the provisioning step and just checkout my code from the vagrant machine with a like so:
+I keep my Vagrantfile in root of my repo. This means that everytime vagrant spawns a VM the VM will mount "my repo path" into /vagrant on the VM. This allows you to change your <span class="label label-default">git remote</span> to local file system path instead of your git server (github) for ultra fast checkouts/pulls:
+
+{% highlight bash %}
+vagrant up
+vagrant ssh
+# from the VM:
+cd /var/your-code-checkout/
+git remote set-url origin /vagrant
+git pull
+{% endhighlight %}
+
+And so now you can work on your code from your laptop env, commit it, and then do a `git pull` from your VM sync with your laptops repo without going through a git server.
+</p>
+
+
