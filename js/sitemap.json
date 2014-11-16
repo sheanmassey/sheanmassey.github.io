@@ -22,5 +22,5 @@
                 "href": "{{ post.url }}"
             }
         {% endfor %}
-    ],
+    ]
 }
