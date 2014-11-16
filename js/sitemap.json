@@ -6,8 +6,12 @@
             {
                 "title": "{{ post.title }}",
                 "tags": [
-                    {% for tage in post.tags %}
-                        "{{ tag }}",
+                    {% for tag in post.tags %}
+                        {% if tag == post.tags|first %}
+                            "{{ tag }}"
+                        {% else %}
+                            ,"{{ tag }}"
+                        {% endif %}
                     {% endfor %}
                 ],
                 "href": "{{ post.url }}",
