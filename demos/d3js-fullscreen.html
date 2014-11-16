@@ -96,10 +96,11 @@ $(document).ready(function(){
         return next_cell_statemap;
     };
 
-    var svg = d3.select("body").append("svg")
-        .attr("id", "svgelm")
-        .attr("viewBox", "0 0 " + width + " " + height)
-        .attr("preserveAspectRatio", "xMidYMid meet");
+    var svg = d3.select("body").style("padding", 50)
+        .append("svg")
+            .attr("id", "svgelm")
+            .attr("viewBox", "0 0 " + width + " " + height)
+            .attr("preserveAspectRatio", "xMidYMid meet");
 
     cell_statemap = next_generation(true);
 
