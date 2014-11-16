@@ -7,7 +7,9 @@
                 "title": "{{ post.title }}",
                 "tags": [
                     {% for tag in post.tags %}
-                        {% if tag == post.tags|first %}
+                        {% assign first_tag = post.tags|first %}
+
+                        {% if tag == first_tag %}
                             "{{ tag }}"
                         {% else %}
                             ,"{{ tag }}"
