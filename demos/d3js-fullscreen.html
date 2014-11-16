@@ -57,25 +57,23 @@ $(document).ready(function(){
         for (var x = 0; x < xcount; x++) {
             next_cell_statemap[x] = new Array();
             for (var y = 0; y < ycount; y++) {
-                var index = {
-                    top: ( y - 1 < 0 ? ycount - 1 : y - 1 ),
-                    right: ( x + 1 == xcount ? 0 : x + 1 ),
-                    bottom: ( y + 1 == ycount ? 0 : y + 1 ),
-                    left: ( x - 1 < 0 ? xcount - 1 : x - 1 )
-                };
+                var top =  ( y - 1 < 0 ? ycount - 1 : y - 1 ),
+                    right =  ( x + 1 == xcount ? 0 : x + 1 ),
+                    bottom =  ( y + 1 == ycount ? 0 : y + 1 ),
+                    left = ( x - 1 < 0 ? xcount - 1 : x - 1 );
 
                 var neighbour_cells = [
                     // 3 above:
-                    [index.left, index.top],
-                    [x, index.top],
-                    [index.right, index.top],
+                    [left, top],
+                    [x, top],
+                    [right, top],
                     // 2 on the sides:
-                    [index.left, y],
-                    [index.right, y],
+                    [left, y],
+                    [right, y],
                     // and 3 below:
-                    [index.left, index.bottom],
-                    [x, index.bottom],
-                    [index.right, index.bottom],
+                    [left, bottom],
+                    [x, bottom],
+                    [right, bottom],
                 ];
 
                 var live_neighbours = 0;
