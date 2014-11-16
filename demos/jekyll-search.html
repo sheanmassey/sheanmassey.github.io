@@ -7,14 +7,27 @@ layout: page
 <script>
 $(document).ready(function(){
     var sitemap_url = "/js/sitemap.json";
+
     var tags = new Array();
+
     $.ajax({
         url: sitemap_url,
         context: $("#progress")
     }).done(function(data){
         $(this).addClass("alert alert-primary");
-        $(this).text(data);
         console.log(data);
+        for (var i = 0; i < data.posts.length; i++) {
+            var p = data.posts[i];
+            for (var m = 0; m < p.tags.length; m++) {
+                var tag = p.tags[m];
+                if ( ! (tag in tags) ) {
+                    tags[tag] = new Array();
+                }
+                tags[tag].push(p);
+            }
+        }
+
+        console.log(tags);
     });
 });
 </script>
