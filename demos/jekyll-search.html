@@ -28,6 +28,15 @@ $(document).ready(function(){
         }
 
         console.log(tags);
+
+        for (var k in tags) {
+            $("#progress")
+                .append( $("<ul></ul>")
+                    .append( $("<li></li>")
+                        .text(k)
+                    )
+                );
+        }
     });
 });
 </script>
