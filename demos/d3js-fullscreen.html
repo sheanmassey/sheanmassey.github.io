@@ -38,10 +38,25 @@ $(document).ready(function(){
         return r;
     };
 
+    var next_generation = function() {
+        var next_cell_statemap = new Array();
+        // ...
+        for (var x = 0; x < xcount; x++) {
+            next_cell_statemap[x] = new Array();
+            for (var y = 0; y < ycount; y++) {
+                next_cell_statemap[x][y] = ( Math.random() > 0.4 );
+            }
+        }
+
+        return next_cell_statemap;
+    };
+
     var svg = d3.select("#viz").append("svg")
         .attr("id", "svgelm")
         .attr("viewBox", "0 0 " + width + " " + height)
         .attr("preserveAspectRatio", "xMidYMid meet");
+
+    cell_statemap = next_generation();
 
     // create initial state:
     svg.selectAll("rect")
@@ -57,18 +72,6 @@ $(document).ready(function(){
             .attr("y", function(d) { return yscale(d.y); })
             .attr("width", cellw)
             .attr("height", cellh);
-
-    var next_generation = function() {
-        var next_cell_statemap = new Array();
-        // ...
-        for (var x = 0; x < xcount; x++) {
-            next_cell_statemap[x] = new Array();
-            for (var y = 0; y < ycount; y++) {
-                next_cell_statemap[x][y] = ( Math.random() > 0.4 );
-            }
-        }
-        return next_cell_statemap;
-    };
 
     function animate() {
         cell_statemap = next_generation();
