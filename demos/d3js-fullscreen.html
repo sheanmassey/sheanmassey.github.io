@@ -99,8 +99,8 @@ $(document).ready(function(){
     var svg = d3.select("body").style("padding-top", '50px')
         .append("svg")
             .attr("id", "svgelm")
-            .attr("viewBox", "0 0 " + width + " " + height)
-            .attr("preserveAspectRatio", "xMidYMid meet");
+            .attr("viewBox", "0 0 " + width + " " + height);
+            // .attr("preserveAspectRatio", "xMidYMid meet");
 
     cell_statemap = next_generation(true);
 
