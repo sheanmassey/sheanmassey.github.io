@@ -2,13 +2,13 @@
 ---
 {
     "posts": [
+        {% assign first_post = site.posts|first %}
         {% for post in site.posts %}
             {
                 "title": "{{ post.title }}",
                 "tags": [
+                    {% assign first_tag = post.tags|first %}
                     {% for tag in post.tags %}
-                        {% assign first_tag = post.tags|first %}
-
                         {% if tag == first_tag %}
                             "{{ tag }}"
                         {% else %}
@@ -16,8 +16,11 @@
                         {% endif %}
                     {% endfor %}
                 ],
-                "href": "{{ post.url }}",
-            },
+                "href": "{{ post.url }}"
+            }
+            {% if first_post != post %}
+                ,
+            {% endif %}
         {% endfor %}
     ],
 }
