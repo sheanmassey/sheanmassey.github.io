@@ -13,7 +13,7 @@ $(document).ready(function(){
         height = 1000,
         cellw = width / xcount,
         cellh = height / ycount,
-        delay = 350,
+        delay = 500,
         cell_statemap = new Array();
 
     var xscale = d3.scale.linear()
@@ -124,8 +124,8 @@ $(document).ready(function(){
             .data(flatten(cell_statemap))
             .transition()
                 .attr("fill", function(d) { return d.state ? "#333" : "yellow"; })
-                .delay(delay)
-                .duration(200);
+                .delay(0)
+                .duration(500);
     }
 
     setInterval(function(){animate();}, delay);
