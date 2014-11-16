@@ -4,6 +4,9 @@
     "posts": [
         {% assign first_post = site.posts|first %}
         {% for post in site.posts %}
+            {% if first_post != post %}
+                ,
+            {% endif %}
             {
                 "title": "{{ post.title }}",
                 "tags": [
@@ -18,9 +21,6 @@
                 ],
                 "href": "{{ post.url }}"
             }
-            {% if first_post != post %}
-                ,
-            {% endif %}
         {% endfor %}
     ],
 }
