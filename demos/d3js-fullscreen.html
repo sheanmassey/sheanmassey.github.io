@@ -1,0 +1,85 @@
+---
+title: demo 1
+layout: page
+---
+
+<div id="vis"></div>
+
+<script>
+$(document).ready(function(){
+    var xcount = 100,
+        ycount = 100,
+        width = window.width,
+        height = window.height,
+        cellw = width / xcount,
+        cellh = height / ycount,
+        delay = 200,
+        cell_statemap = new Array();
+
+    var xscale = d3.scale.linear()
+        .domain([0, xcount])
+        .range([0, width]);
+
+    var yscale = d3.scale.linear()
+        .domain([0, ycount])
+        .range([0, height]);
+
+    var flatten = function(statemep) {
+        var r = [];
+        for (x = 0; x < xcount; x++) {
+            for (y = 0; y < ycount; y++) {
+                r.push({
+                    x: x,
+                    y: y,
+                    state: statemep[x][y];
+                });
+            }
+        }
+        return r;
+    };
+
+    var svg = d3.select("#viz").append("svg")
+        .attr("id", "svgelm")
+        .attr("viewBox", "0 0 " + width + " " + height)
+        .attr("preserveAspectRatio", "xMidYMid meet");
+
+    // create initial state:
+    svg.selectAll("rect")
+        .data(function(){
+            return flatten(cell_statemap);
+        })
+        .enter().append("rect")
+            .attr("stroke", "none")
+            .attr("fill", function(d) {
+                return d.state ? "black" : "white";
+            })
+            .attr("x", function(d) { return xscale(d.x); })
+            .attr("y", function(d) { return yscale(d.y); })
+            .attr("width", cellw)
+            .attr("height", cellh);
+
+    var next_generation = function() {
+        var next_cell_statemap = new Array();
+        // ...
+        for (var x = 0; x < xcount; x++) {
+            next_cell_statemap[x] = new Array();
+            for (var y = 0; y < ycount; y++) {
+                next_cell_statemap[x][y] = ( Math.random() > 0.4 );
+            }
+        }
+        return next_cell_statemap;
+    };
+
+    var animate = function() {
+        cell_statemap = next_generation();
+        d3.selectAll("rect")
+            .data(flatten(cell_statemap))
+            .transition()
+                .attr("fill", function(d) { return d.state ? "black" : "white"; })
+                .delay(delay)
+                .duration(200);
+    };
+
+    setInterval("animate()", delay);
+});
+</script>
