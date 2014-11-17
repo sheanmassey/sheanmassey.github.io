@@ -43,25 +43,23 @@ $(document).ready(function(){
     //                 .style("text-shadow", "none");
     // };
     function animate_colors(){
-        d3.select("span#title_it")
-            .transition()
-                .duration(200)
-                .style("color", function(){
-                    return [
-                        "red",
-                        "purple",
-                        "pink",
-                        "white"
-                    ][ Math.floor(Math.random() * 4) ];
-                })
-                .each("end", function(){
-                    d3.select("span#title_it")
-                        .transition()
-                        .duration(1000)
-                        .style("color", "white");
-                });
-            
-        return;
+        var title = d3.select("h1.blog_title");
+
+        title.transition()
+            .duration(200)
+            .style("color", function(){
+                return [
+                    "red",
+                    "purple",
+                    "pink",
+                    "white"
+                ][ Math.floor(Math.random() * 4) ];
+            })
+            .each("end", function(){
+                title.transition()
+                    .duration(1000)
+                    .style("color", "white");
+            });
     }
     
     function animate() {
