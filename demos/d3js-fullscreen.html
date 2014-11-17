@@ -126,11 +126,11 @@ $(document).ready(function(){
         d3.selectAll("rect")
             .data(flatten(cell_statemap))
             .transition()
-                .attr("fill", function(d) { return d.state ? "white" : "#333"; })
-                .delay(0)
-                .duration(0);
+                .attr("fill", function(d) { return d.state ? "white" : "#333"; });
+                //.delay(0)
+                //.duration(0);
     }
 
-    d3.timer(function(){animate();}, 10);
+    d3.timer(function(){animate();}, 250);
 });
 </script>
