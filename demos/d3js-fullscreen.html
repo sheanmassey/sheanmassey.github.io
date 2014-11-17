@@ -7,8 +7,8 @@ layout: page
 
 <script>
 $(document).ready(function(){
-    var xcount = 20,
-        ycount = 20,
+    var xcount = 40,
+        ycount = 40,
         width = 1000,
         height = 1000,
         cellw = width / xcount,
@@ -127,11 +127,11 @@ $(document).ready(function(){
             .data(flatten(cell_statemap))
             // .transition()
             .style("fill", function(d) { return d.state ? "white" : "#333"; });
-                //.delay(0)
-                //.duration(0);
+            .delay(0)
+            .duration(0);
     }
 
-    setInterval(animate, 1000);
+    setInterval(animate, 1500);
     // d3.timer(function(){animate();}, 250);
 });
 </script>
