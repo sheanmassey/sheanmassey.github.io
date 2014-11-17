@@ -125,8 +125,8 @@ $(document).ready(function(){
         cell_statemap = next_generation();
         d3.selectAll("rect")
             .data(flatten(cell_statemap))
-            .transition()
-                .attr("fill", function(d) { return d.state ? "white" : "#333"; });
+            // .transition()
+            .attr("fill", function(d) { return d.state ? "white" : "#333"; });
                 //.delay(0)
                 //.duration(0);
     }
