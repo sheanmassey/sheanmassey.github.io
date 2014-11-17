@@ -45,16 +45,19 @@ $(document).ready(function(){
     function animate_colors(){
         d3.select("span#title_it")
             .transition()
-            .duration(1000)
-            .style("color", function(){
-                return [
-                    "red",
-                    "purple",
-                    "pink",
-                    "white"
-                ][ Math.floor(Math.random() * 4) ];
-            })
-            .text
+                .duration(200)
+                .style("color", function(){
+                    return [
+                        "red",
+                        "purple",
+                        "pink",
+                        "white"
+                    ][ Math.floor(Math.random() * 4) ];
+                })
+            .transition()
+                .duration(1000)
+                .style("color", "white");
+            
         return;
     }
     
@@ -87,5 +90,6 @@ $(document).ready(function(){
     }
 
     setInterval(animate, 100);
+    setInterval(animate_colors);
 });
 </script>
