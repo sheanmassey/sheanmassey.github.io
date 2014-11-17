@@ -45,6 +45,8 @@ $(document).ready(function(){
     function animate_colors(){
         var title = d3.select("h1.blog_title");
 
+        console.log("animate_colors");
+
         title.transition()
             .duration(200)
             .style("color", function(){
