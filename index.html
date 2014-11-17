@@ -59,6 +59,8 @@ $(document).ready(function(){
     }
     
     function animate() {
+        console.log("animate");
+
         d3.select("h1#title")
             // .transition()
             // .duration(500)
@@ -79,6 +81,8 @@ $(document).ready(function(){
                 trans_index = Math.floor(Math.random() * Object.keys(trans_map).length);
                 trans_key = Object.keys(trans_map)[trans_index];
                 trans_val = trans_map[trans_key];
+
+                console.log("replace " + trans_key + " with " + trans_val);
 
                 return d3.select(this).text().replace(trans_key, trans_val);
             });
