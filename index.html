@@ -59,11 +59,9 @@ $(document).ready(function(){
     }
     
     function animate() {
-        console.log("animate");
-
-        d3.select("h1#title")
-            // .transition()
-            // .duration(500)
+        d3.select("h1.blog_title")
+            .transition()
+            .duration(500)
             .text(function(){
                 trans_map = {
                     'o': '0',
