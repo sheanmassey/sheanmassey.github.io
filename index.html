@@ -5,7 +5,7 @@ layout: page
 
 <div class="jumbotron">
     <!--<h1>{{ site.title }}</h1>-->
-    <h1 class="blog_title">code. hack <span id="title_it">it</span>.</h1>
+    <h1 id="blog_title">code. hack <span id="title_it">it</span>.</h1>
     <p class="nice-font">this is my blog. there are many like it but this one is mine.</p>
 </div>
 
@@ -43,7 +43,7 @@ $(document).ready(function(){
     //                 .style("text-shadow", "none");
     // };
     function animate_colors(){
-        var title = d3.select("h1.blog_title")
+        var title = d3.select("h1#blog_title")
             .style("color", function(){
                 return [
                     "red",
@@ -58,7 +58,7 @@ $(document).ready(function(){
     }
     
     function animate() {
-        d3.select("h1.blog_title")
+        d3.select("h1#blog_title")
             .transition()
             .duration(500)
             .text(function(){
