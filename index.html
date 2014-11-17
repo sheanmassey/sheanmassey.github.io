@@ -54,9 +54,12 @@ $(document).ready(function(){
                         "white"
                     ][ Math.floor(Math.random() * 4) ];
                 })
-            .transition()
-                .duration(1000)
-                .style("color", "white");
+                .each("end", function(){
+                    d3.select("span#title_it")
+                        .transition()
+                        .duration(1000)
+                        .style("color", "white");
+                });
             
         return;
     }
@@ -82,9 +85,6 @@ $(document).ready(function(){
                 trans_index = Math.floor(Math.random() * Object.keys(trans_map).length);
                 trans_key = Object.keys(trans_map)[trans_index];
                 trans_val = trans_map[trans_key];
-
-                console.log("replace " + trans_key + " with " + trans_val);
-
                 return d3.select(this).text().replace(trans_key, trans_val);
             });
     }
