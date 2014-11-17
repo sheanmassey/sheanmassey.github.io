@@ -126,7 +126,7 @@ $(document).ready(function(){
         d3.selectAll("rect")
             .data(flatten(cell_statemap))
             // .transition()
-            .style("fill", function(d) { return d.state ? "white" : "#333"; });
+            .style("fill", function(d) { return d.state ? "white" : "#333"; })
             .delay(0)
             .duration(0);
     }
