@@ -5,7 +5,7 @@ layout: page
 
 <div class="jumbotron">
     <!--<h1>{{ site.title }}</h1>-->
-    <h1>code. hack <span id="title_it">it</span>.</h1>
+    <h1 class="blog_title">code. hack <span id="title_it">it</span>.</h1>
     <p class="nice-font">this is my blog. there are many like it but this one is mine.</p>
 </div>
 
@@ -42,8 +42,7 @@ $(document).ready(function(){
     //                 .style("box-shadow", "none")
     //                 .style("text-shadow", "none");
     // };
-    function animate(){
-        console.log("animate called");
+    function animate_colors(){
         d3.select("span#title_it")
             .transition()
             .duration(1000)
@@ -54,10 +53,36 @@ $(document).ready(function(){
                     "pink",
                     "white"
                 ][ Math.floor(Math.random() * 4) ];
-            });
+            })
+            .text
         return;
     }
+    
+    function animate() {
+        d3.select("h1#title")
+            .transition()
+            .duration(500)
+            .text(function(){
+                trans_map = {
+                    'o': '0',
+                    '0': 'o',
+                    'e': '3',
+                    '3': 'e',
+                    'i': '1',
+                    '1': 'i',
+                    'a': '4',
+                    '4': 'a',
+                    '. ': ': ',
+                    ': ': '. ',
+                };
 
-    setInterval(animate, 2000);
+                trans_index = Math.floor(Math.random() * Object.keys(trans_map).length);
+                trans_key = Object.keys(trans_map)[trans_index];
+                trans_val = trans_map[trans_key];
+
+                return d3.select(this).text().replace(trans_key, trans_val);
+            });
+    }
+    setInterval(animate, 1000);
 });
 </script>
