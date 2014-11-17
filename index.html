@@ -43,12 +43,7 @@ $(document).ready(function(){
     //                 .style("text-shadow", "none");
     // };
     function animate_colors(){
-        var title = d3.select("h1.blog_title");
-
-        console.log("animate_colors");
-
-        title.transition()
-            .duration(200)
+        var title = d3.select("h1.blog_title")
             .style("color", function(){
                 return [
                     "red",
@@ -57,11 +52,9 @@ $(document).ready(function(){
                     "white"
                 ][ Math.floor(Math.random() * 4) ];
             })
-            .each("end", function(){
-                d3.select(this).transition()
-                    .duration(1000)
-                    .style("color", "white");
-            });
+            .transition()
+                .duration(1000)
+                .style("color", "white");
     }
     
     function animate() {
