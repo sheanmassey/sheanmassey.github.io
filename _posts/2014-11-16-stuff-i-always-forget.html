@@ -13,3 +13,17 @@ git remote set-url origin git@github.com:<username>/<repo>.git
 {% highlight bash %}
 git checkout --track origin/<other-branch-name>
 {% endhighlight %}
+
+Vim folding:
+{% highlight bash %}
+# with visual select
+zf
+za
+{% endhighlight %}
+
+Coverage:
+{% highlight bash %}
+coverage run --source='.' --omit='*migrations*','*tests*' ./manage.py test; 
+coverage report -m | tail -n +2 | grep -v '100%' | sort -k4 -r;
+{% endhighlight %}
+
