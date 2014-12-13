@@ -7,10 +7,10 @@ layout: page
 
 <script>
 $(document).ready(function(){
-    var width=100,
-        height=100,
-        xcount=10,
-        ycount=10,
+    var width=1000,
+        height=1000,
+        xcount=100,
+        ycount=100,
         cellw=width/xcount,
         cellh=height/ycount;
 
@@ -51,7 +51,7 @@ $(document).ready(function(){
             .attr("cx", function(d, i) { return xscale( i % xcount ) - 1; })
             .attr("cy", function(d, i) { return yscale( Math.floor(i / xcount) ); })
             .attr("r", function(d, i) { return d; })
-            .style("fill", "blue");
+            .style("fill", function(d, i) { return color(d); });
 
         circles.exit()
             .remove();
