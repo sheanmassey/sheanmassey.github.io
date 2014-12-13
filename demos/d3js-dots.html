@@ -45,7 +45,7 @@ $(document).ready(function(){
         // enter
         // create new elements:
         circles.enter().append("circle")
-            .attr("cx", function(d, i) { return xscale( i % xcount ); })
+            .attr("cx", function(d, i) { return xscale( i % xcount ) - 1; })
             .attr("cy", function(d, i) { return yscale( Math.floor(i / xcount) ); })
             .attr("r", function(d, i) { return d; })
             .style("fill", "blue");
