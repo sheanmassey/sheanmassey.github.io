@@ -28,6 +28,8 @@ $(document).ready(function(){
         .attr("width", "100%")
         .attr("viewBox", "0 0 " + width + " " + height);
 
+    var color = d3.scale.category20();
+
     function update(data) {
         // join
         // join data with old elements, if any:
@@ -39,7 +41,9 @@ $(document).ready(function(){
         circles.transition()
             .duration(750)
             .attr("r", function(d, i) { return d })
-            .style("fill", "pink");
+            .style("fill", function(d, i) {
+                return color(d);
+            });
 
         // enter
         // create new elements:
