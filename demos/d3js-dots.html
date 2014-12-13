@@ -51,7 +51,10 @@ $(document).ready(function(){
         // join
         // join data with old elements, if any:
         var circles = svg.selectAll("circle")
-            .data(data);
+            .data(data)
+            .on("click", function(d) {
+                d3.select(this).remove();
+            });
 
         // update
         // update old elements as needed:
