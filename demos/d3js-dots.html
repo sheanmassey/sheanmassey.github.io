@@ -1,0 +1,68 @@
+---
+title: dots
+layout: page
+---
+
+<div id="viz"></div>
+
+<script>
+$(document).ready(function(){
+    var width=1000,
+        height=1000,
+        xcount=10,
+        ycount=10,
+        cellw=width/xcount,
+        cellh=height/ycount;
+
+    var xscale = d3.scale.linear()
+        .domain([0, xcount])
+        .range([0, width]);
+
+    var yscale = d3.scale.linear()
+        .domain([0, ycount])
+        .range([0, height]);
+
+    var svg = d3.select("#viz").append("svg")
+        .attr("id", "svg")
+        .attr("height", "100%")
+        .attr("width", "100%")
+        .attr("viewBox", "0 0 " + width + " " + height)
+      .append("g");
+
+    function update(data) {
+        // join
+        // join data with old elements, if any:
+        var circles = svg.selectAll("circle")
+            .data(data, function(d) { return d });
+
+        // update
+        // update old elements as needed:
+        circles.transition()
+            .duration(750)
+            .attr("r", function(d, i) { return d });
+
+        // enter
+        // create new elements:
+        circles.enter().append("circle")
+            .attr("cx", function(d, i) { return xscale( i % xcount ); })
+            .attr("cy", function(d, i) { return yscale( i % ycount ); })
+            .attr("r", function(d, i) { return d; })
+            .style("fill", "blue");
+
+        circles.exit()
+            .remove();
+    }
+
+    function random_data() {
+        data = [];
+        for ( i = 0; i < xcount * ycount; i++ ) {
+            data.push( Math.floor( Math.random() * 13 ) );
+        }
+        return data;
+    }
+
+    setInterval(function(){
+        update( random_data() );
+    }, 1500);
+});
+</script>
