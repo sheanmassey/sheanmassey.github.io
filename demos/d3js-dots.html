@@ -7,7 +7,7 @@ layout: page
 <div id="viz"></div>
 -->
 
-<div style="display: block; backgroun-color: #333;">
+<div style="display: block; background-color: #333;">
     <h1>This should overlap...</h1>
 </div>
 
@@ -16,6 +16,7 @@ $(document).ready(function(){
     var div = $('<div id="viz"></div>')
         .css("width", "100%")
         .css("height", "100%")
+        .css("z-index", -1)
         .css("position", "absolute")
         .css("top", 0)
         .css("left", 0);
