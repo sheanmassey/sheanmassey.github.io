@@ -9,8 +9,8 @@ layout: page
 $(document).ready(function(){
     var width=1000,
         height=1000,
-        xcount=100,
-        ycount=100,
+        xcount=30,
+        ycount=30,
         cellw=width/xcount,
         cellh=height/ycount;
 
@@ -60,7 +60,7 @@ $(document).ready(function(){
     function random_data() {
         data = [];
         for ( i = 0; i < xcount * ycount; i++ ) {
-            data.push( Math.floor( Math.random() * 5 ) );
+            data.push( Math.floor( Math.random() * (cellw/2) ) );
         }
         return data;
     }
