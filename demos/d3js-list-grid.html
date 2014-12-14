@@ -111,7 +111,7 @@ $(document).ready(function(){
         var random_i = Math.floor( Math.random() * ( xcount * ycount ) ),
             random_i_value = data[ random_i ];
         
-        var ns = get_neighbors( random_i );
+        var ns = get_neighbors( data, random_i );
         var alike_neighbors_count = 0;
         
         if ( random_i_value == CELL_EMPTY ) { return data; }
