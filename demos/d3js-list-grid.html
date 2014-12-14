@@ -40,7 +40,9 @@ $(document).ready(function(){
             .data(data);
 
         // update
-        cells.style("fill", function(d, i) { return color(d); });
+        cells.transition()
+            .duration(250)
+            .style("fill", function(d, i) { return color(d); });
 
         // enter
         cells.enter().append("rect")
@@ -147,6 +149,6 @@ $(document).ready(function(){
     setInterval(function(){
         data = step(data);
         update(data);
-    }, 10);
+    }, 5);
 });
 </script>
