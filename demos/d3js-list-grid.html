@@ -122,7 +122,7 @@ $(document).ready(function(){
             }
         }
 
-        if ( alike_neighbors_count <= 1 ) {
+        if ( alike_neighbors_count <= 2 ) {
             var relocated_index = get_random_empty_position(data);
             data[ relocated_index ] = random_i_value;
             data[ random_i ] = CELL_EMPTY;
