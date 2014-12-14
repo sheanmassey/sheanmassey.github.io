@@ -9,8 +9,8 @@ layout: post
 $(document).ready(function(){
     var width = 100,
         height = 100,
-        xcount = 20,
-        ycount = 20,
+        xcount = 13,
+        ycount = 13,
         cellw = width / xcount,
         cellh = height / ycount;
 
@@ -37,7 +37,7 @@ $(document).ready(function(){
 
         // update
         cells.transition()
-            .duration(250)
+            .duration(750)
             .style("fill", function(d, i) { return color(d); });
 
         // enter
