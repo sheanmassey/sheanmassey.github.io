@@ -48,7 +48,11 @@ $(document).ready(function(){
             .attr("y", function(d, i) { return yscale( Math.floor( i / xcount ) ); })
             .attr("width", cellw)
             .attr("height", cellh)
-            .style("fill", function(d, i) { return color(d); });
+            .style("fill", function(d, i) { return color(d); })
+            .on("click", function(d, i) {
+                console.log("element " + i + " value: " + d + " with neighbors:");
+                console.log(get_neighbors(data, i));
+            });
 
         // exit
         cells.exit().remove();
