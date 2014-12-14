@@ -1,0 +1,176 @@
+---
+title: SVG demo
+layout: post
+tags: d3js demo
+---
+
+{% highlight javascript %}
+$(document).ready(function(){
+    var div = $('<div id="viz"></div>')
+        .css("width", "100%")
+        .css("height", "100%")
+        .css("z-index", -1)
+        .css("position", "fixed")
+        .css("top", 0)
+        .css("left", 0);
+
+    $("body").append(div);
+
+    var width=1000,
+        height=1000,
+        xcount=30,
+        ycount=30,
+        cellw=width/xcount,
+        cellh=height/ycount;
+
+    var xscale = d3.scale.linear()
+        .domain([0, xcount])
+        .range([0, width]);
+
+    var yscale = d3.scale.linear()
+        .domain([0, ycount])
+        .range([0, height]);
+
+    var svg = d3.select("#viz").append("svg")
+        .attr("id", "svg")
+        .attr("height", "100%")
+        .attr("width", "100%")
+        .attr("preserveAspectRatio", "xMinYMin slice")
+        .attr("viewBox", "0 0 " + width + " " + height);
+
+    var color = d3.scale.category20c();
+
+    function update(data) {
+        // join
+        // join data with old elements, if any:
+        var circles = svg.selectAll("circle")
+            .data(data)
+            .on("mouseover", function(d) {
+                d3.select(this).transition()
+                    .duration(250)
+                    .attr("r", function(d, i) { return 1; });
+                    // .style("fill", function(d, i) { return color(d); });
+            });
+
+        // update
+        // update old elements as needed:
+        circles.transition()
+            .duration(750)
+            .attr("r", function(d, i) { return d })
+            .style("fill", function(d, i) {
+                return color(d);
+            });
+
+        // enter
+        // create new elements:
+        circles.enter().append("circle")
+            .attr("cx", function(d, i) { return xscale( i % xcount ) - 1; })
+            .attr("cy", function(d, i) { return yscale( Math.floor(i / xcount) ); })
+            .attr("r", function(d, i) { return d; })
+            .style("fill", function(d, i) { return color(d); });
+
+        circles.exit()
+            .remove();
+    }
+
+    function random_data() {
+        data = [];
+        for ( i = 0; i < xcount * ycount; i++ ) {
+            data.push( Math.floor( Math.random() * (cellw/2) ) );
+        }
+        return data;
+    }
+
+    update( random_data() );
+
+    setInterval(function(){
+        update( random_data() );
+    }, 1500);
+});
+{% endhighlight %}
+
+
+<script>
+$(document).ready(function(){
+    var div = $('<div id="viz"></div>')
+        .css("width", "100%")
+        .css("height", "100%")
+        .css("z-index", -1)
+        .css("position", "fixed")
+        .css("top", 0)
+        .css("left", 0);
+
+    $("body").append(div);
+
+    var width=1000,
+        height=1000,
+        xcount=30,
+        ycount=30,
+        cellw=width/xcount,
+        cellh=height/ycount;
+
+    var xscale = d3.scale.linear()
+        .domain([0, xcount])
+        .range([0, width]);
+
+    var yscale = d3.scale.linear()
+        .domain([0, ycount])
+        .range([0, height]);
+
+    var svg = d3.select("#viz").append("svg")
+        .attr("id", "svg")
+        .attr("height", "100%")
+        .attr("width", "100%")
+        .attr("preserveAspectRatio", "xMinYMin slice")
+        .attr("viewBox", "0 0 " + width + " " + height);
+
+    var color = d3.scale.category20c();
+
+    function update(data) {
+        // join
+        // join data with old elements, if any:
+        var circles = svg.selectAll("circle")
+            .data(data)
+            .on("mouseover", function(d) {
+                d3.select(this).transition()
+                    .duration(250)
+                    .attr("r", function(d, i) { return 1; });
+                    // .style("fill", function(d, i) { return color(d); });
+            });
+
+        // update
+        // update old elements as needed:
+        circles.transition()
+            .duration(750)
+            .attr("r", function(d, i) { return d })
+            .style("fill", function(d, i) {
+                return color(d);
+            });
+
+        // enter
+        // create new elements:
+        circles.enter().append("circle")
+            .attr("cx", function(d, i) { return xscale( i % xcount ) - 1; })
+            .attr("cy", function(d, i) { return yscale( Math.floor(i / xcount) ); })
+            .attr("r", function(d, i) { return d; })
+            .style("fill", function(d, i) { return color(d); });
+
+        circles.exit()
+            .remove();
+    }
+
+    function random_data() {
+        data = [];
+        for ( i = 0; i < xcount * ycount; i++ ) {
+            data.push( Math.floor( Math.random() * (cellw/2) ) );
+        }
+        return data;
+    }
+
+    update( random_data() );
+
+    setInterval(function(){
+        update( random_data() );
+    }, 1500);
+});
+</script>
