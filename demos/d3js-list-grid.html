@@ -46,7 +46,7 @@ $(document).ready(function(){
 
         // enter
         cells.enter().append("rect")
-            .attr("x", function(d, i) { return xscale( i % xcount ) - 1; })
+            .attr("x", function(d, i) { return xscale( i % xcount ); })
             .attr("y", function(d, i) { return yscale( Math.floor( i / xcount ) ); })
             .attr("width", cellw)
             .attr("height", cellh)
