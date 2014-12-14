@@ -28,11 +28,11 @@ $(document).ready(function(){
         .domain([0, ycount])
         .range([0, height]);
 
-    console.log(yscale(1));
-    console.log(yscale(3));
-    console.log(yscale(12));
-
     var color = d3.scale.category10();
+
+    var CELL_A = 1,
+        CELL_B = 2,
+        CELL_EMPTY = 3;
 
     function update(data) {
         // join
@@ -56,16 +56,88 @@ $(document).ready(function(){
         cells.exit().remove();
     }
 
-    function step(data) {
-        for ( var i = 0; i < data.length; i++ ) {
-            data[i] = Math.floor( Math.random() * 10 );
+    /**
+      * infite grid represented as a list
+      */
+    function get_cell(data, x, y) {
+        if ( x == xcount + 1 ) { x = 0 }
+        if ( y == ycount + 1 ) { y = 0 }
+        if ( x == -1 ) { x = xcount; }
+        if ( y == -1 ) { y = ycount; }
+
+        return data[ y * xcount + x ];
+    }
+
+    /**
+      * return the neighbors of the i-eme elememt
+      * as a list
+      */
+    function get_neighbors(data, i) {
+        var x = i % xcount,
+            y = Math.floor( i / xcount );
+
+        return [
+            get_cell( data, x - 1, y + 1 ),
+            get_cell( data, x,     y + 1 ),
+            get_cell( data, x + 1, y + 1 ),
+            get_cell( data, x - 1, y - 1 ),
+            get_cell( data, x,     y - 1 ),
+            get_cell( data, x + 1, y - 1 ),
+            get_cell( data, x - 1, y ),
+            get_cell( data, x + 1, y ) ];
+    }
+
+    function get_random_empty_position(data) {
+        var random_i = Math.floor( Math.random() * ( xcount * ycount ) );
+        while (true) {
+            if ( data[ random_i ] == CELL_EMPTY ) {
+                return random_i;
+            }
+            random_i++;
+            if ( random_i == ( xcount * ycount ) + 1 ) {
+                random_i = 0;
+            }
         }
+    }
+
+    /**
+      * agents are: 
+      * - happy if they have at least two neighbors like themselves, 
+      * - and unhappy if they have one or zero.
+      */
+    function step(data) {
+        var random_i = Math.floor( Math.random() * ( xcount * ycount ) ),
+            random_i_value = data[ random_i ];
+        
+        var ns = get_neighbors( random_i );
+        var alike_neighbors_count = 0;
+        
+        if ( random_i_value == CELL_EMPTY ) { return data; }
+
+        for ( var i = 0; i < 8; i++ ) {
+            if ( random_i_value == ns[ i ] ) {
+                alike_neighbors_count++;
+            }
+        }
+
+        if ( alike_neighbors_count <= 1 ) {
+            var relocated_index = get_random_empty_position(data);
+            data[ relocated_index ] = random_i_value;
+            data[ random_i ] = CELL_EMPTY;
+        }
+
         return data;
     }
 
     data = [];
+
     for ( var i = 0; i < xcount * ycount; i++ ) {
-        data.push( Math.floor( Math.random() * 10 ) );
+        data.push( Math.floor( Math.random() * 2 ) + 1 );
+    }
+
+    for ( var i = 0; i < (xcount * ycount) / 10; i++ ) {
+        var random_i = Math.floor( Math.random() * xcount * ycount );
+        data[ random_i ] = CELL_EMPTY;
     }
 
     update( data );
