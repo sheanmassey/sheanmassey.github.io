@@ -123,6 +123,10 @@ $(document).ready(function(){
         }
 
         if ( alike_neighbors_count <= 1 ) {
+            console.log("neighbors alike: " + alike_neighbors_count + " ==> moving" );
+            console.log(random_i_value);
+            console.log(ns);
+
             var relocated_index = get_random_empty_position(data);
             data[ relocated_index ] = random_i_value;
             data[ random_i ] = CELL_EMPTY;
