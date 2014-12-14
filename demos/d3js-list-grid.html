@@ -41,7 +41,7 @@ $(document).ready(function(){
 
         // update
         cells.transition()
-            .duration(750)
+            .duration(10)
             .style("fill", function(d, i) { return color(d); });
 
         // enter
@@ -145,6 +145,6 @@ $(document).ready(function(){
     setInterval(function(){
         data = step(data);
         update(data);
-    }, 100);
+    }, 10);
 });
 </script>
