@@ -119,6 +119,9 @@ $(document).ready(function(){
 
         while (true) {
             random_i += 1;
+            if ( random_i >= ( xcount * ycount ) ) {
+                random_i = 0;
+            }
 
             if ( looping && random_i == start_random_i ) {
                 return FALSE;
