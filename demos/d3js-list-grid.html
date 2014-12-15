@@ -106,29 +106,48 @@ $(document).ready(function(){
       * agents are: 
       * - happy if they have at least two neighbors like themselves, 
       * - and unhappy if they have one or zero.
+      * this function returns the new data list or FALSE when the
+      * configuration is stable.
       */
     function step(data) {
-        var random_i = Math.floor( Math.random() * ( xcount * ycount ) ),
-            random_i_value = data[ random_i ];
+        var start_random_i = Math.floor( Math.random() * ( xcount * ycount ) );
         
-        var ns = get_neighbors( data, random_i );
-        var alike_neighbors_count = 0;
-        
-        if ( random_i_value == CELL_EMPTY ) { return data; }
+        var looping = false,
+            random_i = start_random_i - 1;
 
-        for ( var i = 0; i < 8; i++ ) {
-            if ( random_i_value == ns[ i ] ) {
-                alike_neighbors_count++;
+        while (true) {
+            random_i++;
+
+            if ( looping && random_i == start_random_i ) {
+                return FALSE;
             }
-        }
 
-        if ( alike_neighbors_count <= 2 ) {
-            var relocated_index = get_random_empty_position(data);
-            data[ relocated_index ] = random_i_value;
-            data[ random_i ] = CELL_EMPTY;
-        }
+            var random_i_value = data[ random_i ];
+            var ns = get_neighbors( data, random_i );
+            var alike_neighbors_count = 0;
+        
+            if ( random_i_value == CELL_EMPTY ) {
+                looping = true;
+                continue;
+            }
 
-        return data;
+            for ( var i = 0; i < 8; i++ ) {
+                if ( random_i_value == ns[ i ] ) {
+                    alike_neighbors_count++;
+                }
+            }
+
+            if ( alike_neighbors_count <= 2 ) {
+                var relocated_index = get_random_empty_position(data);
+                data[ relocated_index ] = random_i_value;
+                data[ random_i ] = CELL_EMPTY;
+            } else {
+                looping = true;
+                continue;
+            }
+
+            return data;
+        }
     }
 
     data = [];
@@ -144,8 +163,12 @@ $(document).ready(function(){
 
     update( data );
 
-    setInterval(function(){
+    var timer = setInterval(function(){
         data = step(data);
+        if (data == FALSE) {
+            console.log("STABLE");
+            clearInterval(timer);
+        }
         update(data);
     }, 5);
 });
