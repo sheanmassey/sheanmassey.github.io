@@ -236,6 +236,9 @@ $(document).ready(function(){
         var vacant_percent = parseInt($("#my-vacant-percent").val());
         data = initial_data(vacant_percent);
         update(data);
+        if ( $("button#my-pause-btn").attr("disabled") ) {
+            $("button#my-play-btn").attr("disabled", false);
+        }
     });
 });
 </script>
