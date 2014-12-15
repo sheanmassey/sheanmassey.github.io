@@ -217,6 +217,7 @@ $(document).ready(function(){
             update(data);
         }, 100);
         $(this).attr("disabled", true);
+        $("button#my-pause-btn").attr("disabled", false);
     });
 
     $("button#my-pause-btn").click(function(){
@@ -228,6 +229,7 @@ $(document).ready(function(){
     $("button#my-reset-btn").click(function(){
         var vacant_percent = parseInt($("#my-vacant-percent").val());
         data = initial_data(vacant_percent);
+        update(data);
     });
 });
 </script>
