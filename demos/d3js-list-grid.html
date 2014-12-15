@@ -3,7 +3,7 @@ title: list to grid
 layout: post
 ---
 
-<div clas="row">
+<div class="row">
     <div id="viz"></div>
 </div>
 
@@ -11,7 +11,7 @@ layout: post
     <form role="form">
         <div class="form-group">
             <label for="input-percentage-vacant">% Vacant</label>
-            <select class="form-control">
+            <select class="form-control" id="my-vacant-percent">
                 <option>10</option>
                 <option>15</option>
                 <option>20</option>
@@ -21,17 +21,17 @@ layout: post
             </select>
         </div>
     </form>
-    <button class="btn btn-primary">
+    <button class="btn btn-primary" id="my-play-btn">
         <i class="fa fa-play"></i>
         Play
     </button>
-    <button class="btn btn-warning">
+    <button class="btn btn-warning" id="my-pause-btn">
         <i class="fa fa-pause"></i>
         Pause
     </button>
-    <button class="btn btn-danger">
+    <button class="btn btn-danger" id="my-reset-btn">
         <i class="fa fa-step-forward"></i>
-        Pause
+        Restart
     </button>
 </div>
 
@@ -185,27 +185,47 @@ $(document).ready(function(){
         }
     }
 
-    data = [];
+    function initial_data(vacant_percent) {
+        vacant_percent = vacant_percent || 10;
 
-    for ( var i = 0; i < xcount * ycount; i++ ) {
-        data.push( Math.floor( Math.random() * 2 ) );
+        var data = [];
+        for ( var i = 0; i < xcount * ycount; i++ ) {
+            data.push( Math.floor( Math.random() * 2 ) );
+        }
+
+        for ( var i = 0; i < (xcount * ycount) / vacant_percent; i++ ) {
+            var random_i = Math.floor( Math.random() * xcount * ycount );
+            data[ random_i ] = CELL_EMPTY;
+        }
     }
 
-    for ( var i = 0; i < (xcount * ycount) / 10; i++ ) {
-        var random_i = Math.floor( Math.random() * xcount * ycount );
-        data[ random_i ] = CELL_EMPTY;
-    }
-
+    data = initial_data();
     update( data );
 
-    var timer = setInterval(function(){
-        data = step(data);
-        if (false === data) {
-            console.log("STABLE");
-            clearInterval(timer);
-            return;
-        }
-        update(data);
-    }, 100);
+    var timer = null;
+
+    $("button#my-play-btn").click(function(){
+        timer = setInterval(function(){
+            data = step(data);
+            if (false === data) {
+                console.log("STABLE");
+                clearInterval(timer);
+                return;
+            }
+            update(data);
+        }, 100);
+        $(this).attr("disabled", true);
+    });
+
+    $("button#my-pause-btn").click(function(){
+        clearInterval(timer);
+        $(this).attr("disabled", true);
+        $("button#my-play-btn").attr("disabled", false);
+    });
+
+    $("button#my-reset-btn").click(function(){
+        var vacant_percent = parseInt($("#my-vacant-percent").val());
+        data = initial_data(vacant_percent);
+    });
 });
 </script>
