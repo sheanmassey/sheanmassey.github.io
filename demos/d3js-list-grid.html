@@ -200,7 +200,7 @@ $(document).ready(function(){
         var data = [];
 
         for ( var i = 0; i < xcount * ycount; i++ ) {
-            data.push( Math.floor( Math.random() * 4 ) );
+            data.push( Math.floor( Math.random() * group_count ) + 1 );
         }
 
         for ( var i = 0; i < (xcount * ycount); i++ ) {
