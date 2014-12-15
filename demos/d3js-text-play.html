@@ -51,7 +51,7 @@ $(document).ready(function(){
             .attr("y", 0);
 
         // exit
-        cells.exit()
+        text.exit()
             .attr("class", "exit")
           .transition()
             .duration(750)
@@ -67,25 +67,11 @@ $(document).ready(function(){
         var data = [];
     }
 
-
-    String.prototype.shuffle = function () {
-            var a = this.split(""),
-                        n = a.length;
-
-                for(var i = n - 1; i > 0; i--) {
-                            var j = Math.floor(Math.random() * (i + 1));
-                                    var tmp = a[i];
-                                            a[i] = a[j];
-                                                    a[j] = tmp;
-                                                        }
-                    return a.join("");
-    }
-
     var alphabet = 'abcgabcgabcgabcgabcgabcgiabcgabcg';
 
     // Grab a random sample of letters from the alphabet, in alphabetical order.
     setInterval(function() {
-        update(alphabet.shuffle().slice(0, Math.floor(Math.random() * 32)))
+        update(shuffle(alphabet).slice(0, Math.floor(Math.random() * 32)))
     }, 1500);
         
         // Shuffles the input array.
