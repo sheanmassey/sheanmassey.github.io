@@ -197,6 +197,8 @@ $(document).ready(function(){
             var random_i = Math.floor( Math.random() * xcount * ycount );
             data[ random_i ] = CELL_EMPTY;
         }
+
+        return data;
     }
 
     data = initial_data(10);
