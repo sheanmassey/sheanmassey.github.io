@@ -64,9 +64,10 @@ $(document).ready(function(){
     var CELL_A = 0,
         CELL_B = 1,
         CELL_C = 2,
-        CELL_EMPTY = 3;
+        CELL_D = 3,
+        CELL_EMPTY = 4;
 
-    var COLORS = ['#0099cc', '#003399', '#ccffcc', 'white'];
+    var COLORS = ['#0099cc', '#003399', '#66ccff', '#ccffcc', 'white'];
 
     function update(data) {
         // join
@@ -192,7 +193,7 @@ $(document).ready(function(){
 
         var data = [];
         for ( var i = 0; i < xcount * ycount; i++ ) {
-            data.push( Math.floor( Math.random() * 3 ) );
+            data.push( Math.floor( Math.random() * 4 ) );
         }
 
         
