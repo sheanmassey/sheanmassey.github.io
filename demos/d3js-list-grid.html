@@ -30,9 +30,9 @@ $(document).ready(function(){
 
     var color = d3.scale.category10();
 
-    CELL_A = 1,
-    CELL_B = 2,
-    CELL_EMPTY = 3;
+    var CELL_A = 0,
+        CELL_B = 1,
+        CELL_EMPTY = 2;
 
     // var COLORS = {
     //     CELL_A: '#0099cc',
@@ -40,11 +40,7 @@ $(document).ready(function(){
     //     CELL_EMPTY: '#003399',
     // };
 
-    COLORS = {
-        CELL_A: 'lightblue',
-        CELL_B: 'blue',
-        CELL_EMPTY: 'white',
-    };
+    var COLORS = ['lightblue', 'blue', 'white'];
 
     function update(data) {
         // join
