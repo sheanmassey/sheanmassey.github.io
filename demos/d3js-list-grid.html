@@ -3,7 +3,37 @@ title: list to grid
 layout: post
 ---
 
-<div id="viz"></div>
+<div clas="row">
+    <div id="viz"></div>
+</div>
+
+<div class="row">
+    <form role="form">
+        <div class="form-group">
+            <label for="input-percentage-vacant">% Vacant</label>
+            <select class="form-control">
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>25</option>
+                <option>30</option>
+                <option>60</option>
+            </select>
+        </div>
+    </form>
+    <button class="btn btn-primary">
+        <i class="fa fa-play"></i>
+        Play
+    </button>
+    <button class="btn btn-warning">
+        <i class="fa fa-pause"></i>
+        Pause
+    </button>
+    <button class="btn btn-danger">
+        <i class="fa fa-step-forward"></i>
+        Pause
+    </button>
+</div>
 
 <script>
 $(document).ready(function(){
