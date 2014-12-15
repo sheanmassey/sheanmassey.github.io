@@ -173,6 +173,7 @@ $(document).ready(function(){
         if (false === data) {
             console.log("STABLE");
             clearInterval(timer);
+            return;
         }
         update(data);
     }, 100);
