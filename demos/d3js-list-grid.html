@@ -158,6 +158,10 @@ $(document).ready(function(){
         var looping = false,
             random_i = start_random_i - 1;
 
+        // buffer 10 changes then return to make less calls
+        // to the update code:
+        var changes_allowed = 10;
+
         while (true) {
             random_i += 1;
             if ( random_i >= ( xcount * ycount ) ) {
@@ -187,6 +191,17 @@ $(document).ready(function(){
                 var relocated_index = get_random_empty_position(data);
                 data[ relocated_index ] = random_i_value;
                 data[ random_i ] = CELL_EMPTY;
+
+                // reset the loop variables and continue until changes_allowed == 0:
+                changes_allowed--;
+                if (0 === changes_allowed) {
+                    return data;
+                }
+                looping = false;
+                start_random_i = Math.floor( Math.random() * (xcount * ycount) );
+                random_i = start_random_i - 1;
+                continue;
+
             } else {
                 looping = true;
                 continue;
