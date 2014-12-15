@@ -160,7 +160,8 @@ $(document).ready(function(){
 
         // buffer 10 changes then return to make less calls
         // to the update code:
-        var changes_allowed = 10;
+        var changes_allowed = 10,
+            changes_made = 0;
 
         while (true) {
             random_i += 1;
@@ -169,6 +170,7 @@ $(document).ready(function(){
             }
 
             if ( looping && random_i == start_random_i ) {
+                if (changes_made) return data;
                 return false;
             }
 
@@ -193,8 +195,8 @@ $(document).ready(function(){
                 data[ random_i ] = CELL_EMPTY;
 
                 // reset the loop variables and continue until changes_allowed == 0:
-                changes_allowed--;
-                if (0 === changes_allowed) {
+                changes_made++;
+                if (changes_made === changes_allowed) {
                     return data;
                 }
                 looping = false;
