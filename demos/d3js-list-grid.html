@@ -10,7 +10,7 @@ layout: post
     <div class="col-sm-2">
         <form role="form">
             <div class="form-group">
-                <label for="input-percentage-vacant">% Vacant</label>
+                <label for="my-vacant-percent">% Vacant</label>
                 <select class="form-control" id="my-vacant-percent">
                     <option value="10">10</option>
                     <option value="15">15</option>
@@ -18,6 +18,14 @@ layout: post
                     <option value="25">25</option>
                     <option value="30">30</option>
                     <option value="60">60</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="my-group-count">Groups</label>
+                <select class="form-control" id="my-group-count">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
                 </select>
             </div>
         </form>
@@ -61,13 +69,13 @@ $(document).ready(function(){
 
     var color = d3.scale.category10();
 
-    var CELL_A = 0,
-        CELL_B = 1,
-        CELL_C = 2,
-        CELL_D = 3,
-        CELL_EMPTY = 4;
+    var CELL_EMPTY = 0,
+        CELL_A = 1,
+        CELL_B = 2,
+        CELL_C = 3,
+        CELL_D = 4;
 
-    var COLORS = ['#0099cc', '#003399', '#66ccff', '#ccffcc', 'white'];
+    var COLORS = ['white', '#0099cc', '#003399', '#66ccff', '#ccffcc'];
 
     function update(data) {
         // join
@@ -188,15 +196,12 @@ $(document).ready(function(){
         }
     }
 
-    function initial_data(vacant_percent) {
-        vacant_percent = vacant_percent || 10;
-
+    function initial_data(vacant_percent, group_count) {
         var data = [];
+
         for ( var i = 0; i < xcount * ycount; i++ ) {
             data.push( Math.floor( Math.random() * 4 ) );
         }
-
-        
 
         for ( var i = 0; i < (xcount * ycount); i++ ) {
             if (( Math.random() * 100 ) <= vacant_percent ) {
@@ -208,8 +213,8 @@ $(document).ready(function(){
         return data;
     }
 
-    data = initial_data(10);
-    update( data );
+    data = initial_data(10, 2);
+    update(data);
 
     var timer = null;
 
@@ -237,7 +242,8 @@ $(document).ready(function(){
 
     $("button#my-reset-btn").click(function(){
         var vacant_percent = parseInt($("#my-vacant-percent").val());
-        data = initial_data(vacant_percent);
+        var group_count = parseInt($("#my-group-count").val());
+        data = initial_data(vacant_percent, group_count);
         update(data);
         if ( $("button#my-pause-btn").attr("disabled") ) {
             $("button#my-play-btn").attr("disabled", false);
