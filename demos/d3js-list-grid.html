@@ -216,6 +216,8 @@ $(document).ready(function(){
             if (false === data) {
                 console.log("STABLE");
                 clearInterval(timer);
+                $("button#my-pause-btn").attr("disabled", true);
+                $("button#my-play-btn").attr("disabled", false);
                 return;
             }
             update(data);
