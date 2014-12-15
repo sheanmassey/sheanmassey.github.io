@@ -34,13 +34,7 @@ $(document).ready(function(){
         CELL_B = 1,
         CELL_EMPTY = 2;
 
-    // var COLORS = {
-    //     CELL_A: '#0099cc',
-    //     CELL_B: '#CCFFCC',
-    //     CELL_EMPTY: '#003399',
-    // };
-
-    var COLORS = ['lightblue', 'blue', 'white'];
+    var COLORS = ['#333', '#aaa', 'white'];
 
     function update(data) {
         // join
@@ -178,6 +172,6 @@ $(document).ready(function(){
             clearInterval(timer);
         }
         update(data);
-    }, 50);
+    }, 100);
 });
 </script>
