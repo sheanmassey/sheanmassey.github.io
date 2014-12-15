@@ -4,35 +4,36 @@ layout: post
 ---
 
 <div class="row">
-    <div id="viz"></div>
-</div>
-
-<div class="row">
-    <form role="form">
-        <div class="form-group">
-            <label for="input-percentage-vacant">% Vacant</label>
-            <select class="form-control" id="my-vacant-percent">
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-                <option value="25">25</option>
-                <option value="30">30</option>
-                <option value="60">60</option>
-            </select>
-        </div>
-    </form>
-    <button class="btn btn-default" id="my-play-btn">
-        <i class="fa fa-play"></i>
-        Play
-    </button>
-    <button class="btn btn-default" id="my-pause-btn" disabled="disabled">
-        <i class="fa fa-pause"></i>
-        Pause
-    </button>
-    <button class="btn btn-default" id="my-reset-btn">
-        <i class="fa fa-step-forward"></i>
-        Reset
-    </button>
+    <div class="col-sm-10">
+        <div id="viz"></div>
+    </div>
+    <div class="col-sm-2">
+        <form role="form">
+            <div class="form-group">
+                <label for="input-percentage-vacant">% Vacant</label>
+                <select class="form-control" id="my-vacant-percent">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="60">60</option>
+                </select>
+            </div>
+        </form>
+        <button class="btn btn-default" id="my-play-btn">
+            <i class="fa fa-play"></i>
+            Play
+        </button>
+        <button class="btn btn-default" id="my-pause-btn" disabled="disabled">
+            <i class="fa fa-pause"></i>
+            Pause
+        </button>
+        <button class="btn btn-default" id="my-reset-btn">
+            <i class="fa fa-step-forward"></i>
+            Reset
+        </button>
+    </div>
 </div>
 
 <script>
