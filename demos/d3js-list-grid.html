@@ -21,17 +21,17 @@ layout: post
             </select>
         </div>
     </form>
-    <button class="btn btn-primary" id="my-play-btn">
+    <button class="btn btn-default" id="my-play-btn">
         <i class="fa fa-play"></i>
         Play
     </button>
-    <button class="btn btn-warning" id="my-pause-btn">
+    <button class="btn btn-default" id="my-pause-btn">
         <i class="fa fa-pause"></i>
         Pause
     </button>
-    <button class="btn btn-danger" id="my-reset-btn">
+    <button class="btn btn-default" id="my-reset-btn">
         <i class="fa fa-step-forward"></i>
-        Restart
+        Reset
     </button>
 </div>
 
@@ -217,7 +217,7 @@ $(document).ready(function(){
                 console.log("STABLE");
                 clearInterval(timer);
                 $("button#my-pause-btn").attr("disabled", true);
-                $("button#my-play-btn").attr("disabled", false);
+                $("button#my-play-btn").attr("disabled", true);
                 return;
             }
             update(data);
