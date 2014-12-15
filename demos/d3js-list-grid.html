@@ -124,7 +124,7 @@ $(document).ready(function(){
             }
 
             if ( looping && random_i == start_random_i ) {
-                return FALSE;
+                return false;
             }
 
             var random_i_value = data[ random_i ];
@@ -170,7 +170,7 @@ $(document).ready(function(){
 
     var timer = setInterval(function(){
         data = step(data);
-        if (!data) {
+        if (false === data) {
             console.log("STABLE");
             clearInterval(timer);
         }
