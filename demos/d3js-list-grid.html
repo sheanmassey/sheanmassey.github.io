@@ -122,7 +122,7 @@ $(document).ready(function(){
             random_i = start_random_i - 1;
 
         while (true) {
-            random_i++;
+            random_i += 1;
 
             if ( looping && random_i == start_random_i ) {
                 return FALSE;
@@ -171,7 +171,7 @@ $(document).ready(function(){
 
     var timer = setInterval(function(){
         data = step(data);
-        if (data == FALSE) {
+        if (!data) {
             console.log("STABLE");
             clearInterval(timer);
         }
