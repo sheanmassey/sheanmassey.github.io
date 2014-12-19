@@ -1,0 +1,37 @@
+---
+layout: post
+title: d3js
+---
+
+The important piece of info I've been missing is that by default d3 uses the index of the element as it's ID. To use a custom ID you need to pass a function to the data() method that returns that actual ID of the element:
+
+{% highlight javascript %}
+var data = [
+    {'id': 1, 'value': 3324},
+    {'id': 2, 'value': 32432},
+    {'id': 3, 'value': 98},
+    // ...
+];
+
+var bars = svg.selectAll("rect")
+    .data(data, function(d, i) {
+        return d.id;
+    });
+{% endhighlight %}
+
+By using a "custom identifier" on each record of the dataset D3 is able to track both: changes to the records attributes and changes to the position of the record inside of the data list. If the dataset is a set of unique values then a custom ID is not required, simply using the value itself will suffice:
+
+{% highlight javascript %}
+var data = [
+    3324,
+    32432,
+    98,
+];
+
+var bars = svg.selectAll("rect")
+    .data(data, function(d) {
+        return d;
+    });
+{% endhighlight %}
+
+
