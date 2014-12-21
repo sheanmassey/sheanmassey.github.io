@@ -64,7 +64,7 @@ $(document).ready(function(){
     var width = 200,
         height = 200,
         xcount = 30,
-        ycount = 60,
+        ycount = 30,
         cellw = width / xcount,
         cellh = height / ycount;
 
@@ -249,10 +249,13 @@ $(document).ready(function(){
     update(data);
 
     var timer = null;
+    var required_neighbors = parseInt( $("#my-required-neighbors").val() );
+
+    $("select#my-required_neighbors").change(function(){
+        required_neighbors = $(this).val();
+    });
 
     $("button#my-play-btn").click(function(){
-        var required_neighbors = parseInt( $("#my-required-neighbors").val() );
-
         timer = setInterval(function(){
             data = step(data, required_neighbors);
             if (false === data) {
