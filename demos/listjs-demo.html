@@ -6,8 +6,6 @@ layout: page
 <div class="row">
     <div class="col-sm-12">
         <div id="users_table">
-
-
             <div class="row">
                 <div class="col-sm-6">
                     <input class="search form-control" placeholder="Search" />
@@ -20,16 +18,21 @@ layout: page
                 </div>
             </div>
 
-
             <table class="table">
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>name</th>
+                        <th>
+                            <button class="sort btn btn-primary form-control" data-sort="name">
+                                <i class="fa fa-sort"></i>
+                                Name
+                            </button>
+                        </th>
                         <th>email</th>
                         <th>control</th>
                     </tr>
                 </thead>
+
                 <!-- IMPORTANT, class="list" have to be at tbody -->
                 <tbody class="list">
                     <tr>
