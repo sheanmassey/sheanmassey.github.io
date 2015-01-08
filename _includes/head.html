@@ -62,17 +62,18 @@
             <div class="collapse navbar-collapse" id="my-collapse-navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://github.com/sheanmassey/">
+                        <a class="menu-icon" href="https://github.com/sheanmassey/">
                             <i class="fa fa-github fa-lg"></i>
+                            <span class="menu-title hidden">github</span>
                         </a>
                     </li>
                     <li>
-                        <a href="http://stackoverflow.com/users/854434/smassey">
+                        <a class="menu-icon" href="http://stackoverflow.com/users/854434/smassey">
                             <i class="fa fa-stack-exchange fa-lg"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://be.linkedin.com/pub/shean-massey/27/4a2/6a7/">
+                        <a class="menu-icon" href="https://be.linkedin.com/pub/shean-massey/27/4a2/6a7/">
                             <i class="fa fa-linkedin-square fa-lg"></i>
                         </a>
                     </li>
@@ -80,5 +81,16 @@
             </div>
         </div>
     </nav>
+
+    <script>
+    $(document).ready(function(){
+        $(".menu-icon").mouseenter(function(){
+            this.filter("span.menu-title").removeClass("hidden");
+        });
+        $(".menu-icon").mouseexit(function(){
+            this.filter("span.menu-title").addClass("hidden");
+        });
+    });
+    </script>
 
     <div class="container">
