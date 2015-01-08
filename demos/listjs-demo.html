@@ -7,28 +7,32 @@ layout: page
     <div class="col-sm-12">
         <div id="users_table">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <input class="search form-control" placeholder="Search" />
-                </div>
-                <div class="col-sm-3">
-                    <button class="sort btn btn-primary form-control" data-sort="name">Sort by name</button>
-                </div>
-                <div class="col-sm-3">
-                    <button class="sort btn btn-primary form-control" data-sort="email">Sort by email</button>
                 </div>
             </div>
 
             <table class="table">
                 <thead>
                     <tr>
-                        <th>id</th>
+                        <th>
+                            <button class="sort btn btn-default form-control" data-sort="id">
+                                <i class="fa fa-sort"></i>
+                                ID
+                            </button>
+                        </th>
                         <th>
                             <button class="sort btn btn-default form-control" data-sort="name">
                                 <i class="fa fa-sort"></i>
                                 Name
                             </button>
                         </th>
-                        <th>email</th>
+                        <th>
+                            <button class="sort btn btn-default form-control" data-source="email">
+                                <i class="fa fa-sort"></i>
+                                Email
+                            </button>
+                        </th>
                         <th>control</th>
                     </tr>
                 </thead>
@@ -36,31 +40,31 @@ layout: page
                 <!-- IMPORTANT, class="list" have to be at tbody -->
                 <tbody class="list">
                     <tr>
-                        <td>1</td>
+                        <td class="id">1</td>
                         <td class="name">shean massey</td>
                         <td class="email">shean@mail.com</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>2</td>
+                        <td class="id">2</td>
                         <td class="name">john doe</td>
                         <td class="email">john.doe@mail.com</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>3</td>
+                        <td class="id">3</td>
                         <td class="name">jane doe</td>
                         <td class="email">jane@mail.com</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>4</td>
+                        <td class="id">4</td>
                         <td class="name">some user</td>
                         <td class="email">user@hotmail.com</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>5</td>
+                        <td class="id">5</td>
                         <td class="name">alerto jose</td>
                         <td class="email">zimberman@hotmail.com</td>
                         <td></td>
@@ -77,7 +81,7 @@ layout: page
 $(document).ready(function(){
     $.getScript("/libs/list.js/list.js", function(){
         var user_table = new List("users_table", {
-            valueNames: ['name', 'email']
+            valueNames: ['name', 'email'. 'id']
         });
     });
 });
