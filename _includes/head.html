@@ -85,10 +85,10 @@
     <script>
     $(document).ready(function(){
         $(".menu-icon").mouseenter(function(){
-            this.filter("span.menu-title").removeClass("hidden");
+            this.filter("span.menu-title").first().removeClass("hidden");
         });
         $(".menu-icon").mouseexit(function(){
-            this.filter("span.menu-title").addClass("hidden");
+            this.filter("span.menu-title").first().addClass("hidden");
         });
     });
     </script>
