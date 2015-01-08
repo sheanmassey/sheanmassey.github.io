@@ -11,7 +11,7 @@ layout: page
                 <thead>
                     <tr>
                         <th colspan="4" style="border-bottom: 0">
-                            <input class="search form-control" placeholder="Search" />
+                            <input class="search form-control" placeholder="Search by ID, name, email address, ..." />
                         </th>
                     </tr>
                     <tr>
@@ -33,7 +33,11 @@ layout: page
                                 Email
                             </button>
                         </th>
-                        <th>control</th>
+                        <th>
+                            <button class="btn btn-primary disabled form-control">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </button>
+                        </th>
                     </tr>
                 </thead>
 
@@ -44,7 +48,8 @@ layout: page
                         <td class="name">shean massey</td>
                         <td class="email">shean@mail.com</td>
                         <td>
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary form-control">
+                                <i class="fa fa-send"></i>
                                 Random
                             </button>
                         </td>
