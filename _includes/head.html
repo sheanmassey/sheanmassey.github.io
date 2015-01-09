@@ -85,6 +85,8 @@
     <script>
     $(document).ready(function(){
         $(".menu-icon").mouseenter(function(){
+            console.log($(this));
+            console.log($(this).filter("span.menu-title"));
             $(this).filter("span.menu-title").first().removeClass("hidden").addClass("show");
         });
         $(".menu-icon").mouseleave(function(){
