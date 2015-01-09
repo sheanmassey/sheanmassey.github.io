@@ -87,10 +87,10 @@
         $(".menu-icon").mouseenter(function(){
             console.log($(this));
             console.log($(this).filter("span.menu-title"));
-            $(this).filter("span.menu-title").first().removeClass("hidden").addClass("show");
+            $(this).children().last().removeClass("hidden").addClass("show");
         });
         $(".menu-icon").mouseleave(function(){
-            $(this).filter("span.menu-title").first().addClass("hidden").removeClass("hidden");
+            $(this).children().last().addClass("hidden").removeClass("hidden");
         });
     });
     </script>
