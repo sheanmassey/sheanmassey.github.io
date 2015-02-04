@@ -9,6 +9,18 @@
 
 
 <div class="row" id="my-content-row">
+    <div class="col-sm-3">
+        <h3>cat /dev/urandom</h3>
+
+        <ul class="list-unstyled">
+            {% for post in site.posts %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
     <div class="col-sm-9" id="my-content-col">
         <h1>
             {{ page.title }}
@@ -28,18 +40,6 @@
 
         <br />
         <div id="disqus_thread"></div>
-    </div>
-
-    <div class="col-sm-3">
-        <h3>cat /dev/urandom</h3>
-
-        <ul class="list-unstyled">
-            {% for post in site.posts %}
-                <li>
-                    <a href="{{ post.url }}">{{ post.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
     </div>
 </div>
 
