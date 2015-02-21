@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title></title>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="/libs/angular-1.3.12/angular.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <!-- for syntax highlighting with jekyll / pygments. this must be included after boostsrap -->
+        <link rel="stylesheet" href="/css/monokai.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> -->
+
+        <link rel="stylesheet" href="/libs/font-awesome-4.2.0/css/font-awesome.css">
+
+        <style>
+            * {
+                font-family: 'Droid Sans', sans;
+            }
+            section {
+                display: table;
+                height: 100vh;
+                min-width: none;
+                width: 100%;
+            }
+            .intro {
+                height: 90vh;
+                background-color: #333;
+                color: white;
+            }
+            .intro h1 {
+                font-size: 63px;
+            }
+            .intro p {
+                font-size: 23px;
+            }
+            .intro .col-sm-3,
+            .intro .col-sm-12,
+            .intro-footer .col-xs-6 {
+                font-size: 63px;
+                text-align: center;
+            }
+            .intro-footer {
+                height: 10vh;
+            }
+            .content {
+                display: table-cell;
+                vertical-align: middle;
+                padding: 0 7%;
+            }
+            p { color: #bbb; }
+            .blue {
+                background-color: lightblue;
+                color: white;
+                color: #333;
+            }
+            .blue p {
+                color: #333;
+            }
+            .my-scroll-to {
+                text-decoration: none;
+                color: inherit;
+            }
+            .my-scroll-to:hover {
+                text-decoration: none;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"
+            id="my-navbar" style="display:none">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-collapse-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/" class="nice-font">sheanmassey.github.io</a>
+                    
+                </div>
+
+                <div class="collapse navbar-collapse" id="my-collapse-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="menu-icon my-scroll-to" href="#top-sec">
+                                reboot
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-icon my-scroll-to" href="#proc-self">
+                                /proc/self
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-icon my-scroll-to" href="#dev-random">
+                                /dev/random
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="intro" id="top-sec">
+            <span class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1>code. hack it.</h1>
+                            <p>sheanmassey.github.io</p>
+                        </div>
+                    </div>
+                    <div style="padding-top: 100px"></div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <i class="fa fa-github"></i>
+                        </div>
+                        <div class="col-sm-3">
+                            <i class="fa fa-stack-exchange"></i>
+                        </div>
+                        <div class="col-sm-3">
+                            <i class="fa fa-linkedin-square"></i>
+                        </div>
+                        <div class="col-sm-3">
+                            <i class="fa fa-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </section>
+
+        <section class="intro-footer">
+            <div class="container" id="intro-footer">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h2><a href="#dev-random" class="my-scroll-to">/dev/random</a></h2>
+                    </div>
+                    <div class="col-xs-6">
+                        <h2><a href="#proc-self" class="my-scroll-to">/proc/self</a></h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="middle-sec">
+            <div class="content" id="proc-self">
+                <h1>Big  Title</h1>
+                <p>And lots about me</p>
+            </div>
+        </section>
+
+        <section class="blue" id="bottom-sec">
+            <div class="content" id="dev-random">
+                <h1>More Random Crap!</h1>
+
+
+                <!-- start slipsum code -->
+
+                <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
+
+                <!-- please do not remove this line -->
+
+                <div style="display:none;">
+                    <a href="http://slipsum.com">lorem ipsum</a></div>
+
+                <!-- end slipsum code -->
+
+
+            </div>
+        </section>
+
+        <script>
+            $(document).ready(function(){
+                $(".my-scroll-to").click(function(){
+                    var target = $(this.hash);
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 750);
+                    return false;
+                });
+
+                $(window).scroll(function(){
+                    var footer_top = $("#intro-footer").offset().top;
+                    if ( $(this).scrollTop() >= footer_top ) {
+                        $("#my-navbar").fadeIn("slow");
+                    } else {
+                        $("#my-navbar").fadeOut("slow");
+                    }
+                });
+            });
+        </script>
+
+    </body>
+</html>
