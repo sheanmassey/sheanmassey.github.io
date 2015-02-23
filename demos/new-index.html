@@ -38,7 +38,7 @@
             }
             .intro {
                 height: 90vh;
-                background-color: #333;
+                /* background-color: #333; */
                 color: white;
             }
             .intro h1 {
@@ -108,8 +108,8 @@
                             </a>
                         </li>
                         <li>
-                            <a class="menu-icon my-scroll-to" href="#proc-self">
-                                /proc/self
+                            <a class="menu-icon my-scroll-to" href="#whoami">
+                                whoami
                             </a>
                         </li>
                         <li>
@@ -122,14 +122,18 @@
             </div>
         </nav>
 
-        <section class="intro parallax-window" id="top-sec"
-            data-parallax="scroll"
-            data-image-src="http://placekitten.com/g/2000/2000"
-            data-natural-width="2000"
-            data-natural-height=2000"
-            >
+        <section class="intro" id="top-sec">
+            <div class="parallax-window content"
 
-            <span class="content">
+                style="min-height: 90vh;
+                      background: rgba(51,51,51,.6);"
+                
+                data-parallax="scroll"
+                data-image-src="http://placekitten.com/g/2000/2000"
+                data-natural-width="2000"
+                data-natural-height="2000">
+
+            <span class="">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -154,38 +158,45 @@
                     </div>
                 </div>
             </span>
+
+            </div>
+
         </section>
 
         <section class="intro-footer">
             <div class="container" id="intro-footer">
                 <div class="row">
                     <div class="col-xs-6">
-                        <h2><a href="#dev-random" class="my-scroll-to">/dev/random</a></h2>
+                        <a href="#dev-random" class="my-scroll-to">
+                            <button class="btn btn-lg btn-primary" style="width:100%">
+                                /dev/random
+                            </button>
+                        </a>
                     </div>
                     <div class="col-xs-6">
-                        <h2><a href="#proc-self" class="my-scroll-to">/proc/self</a></h2>
+                        <a href="#whoami" class="my-scroll-to">
+                            <button class="btn btn-lg btn-primary" style="width:100%">
+                                whoami
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <div class="parallax-window" data-parallax="scroll" data-image-src="http://placekitten.com/g/1500/600"
-            data-natural-width="1500"
-            data-natural-height="600"
-            ></div>
-
         <section id="middle-sec">
-            <div class="content" id="proc-self">
+            <div class="content" id="whoami">
                 <h1>Big  Title</h1>
                 <p>And lots about me</p>
             </div>
         </section>
 
+        <!--
         <div class="parallax-window" data-parallax="scroll" data-image-src="http://placekitten.com/g/2000/600"
             data-natural-width="2000"
             data-natural-height="600"
             ></div>
+        -->
 
         <section class="blue my-barpad" id="bottom-sec">
 
