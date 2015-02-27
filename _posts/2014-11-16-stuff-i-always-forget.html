@@ -16,6 +16,14 @@ git remote set-url origin git@github.com:<username>/<repo>.git
 git checkout --track origin/<other-branch-name>
 {% endhighlight %}
 
+{% highlight bash %}
+git checkout -b new-branch
+git commit -m "changes"
+# new changes are merged into master inbetween time
+git checkout new-branch
+git rebase master
+{% endhighlight %}
+
 <p>
 Vim folding:
 </p>
