@@ -1,0 +1,94 @@
+---
+layout: post
+tags: javascript
+---
+
+<p>
+    Keep it hidden. You shouldn't pollute the global scope unless necessary.
+</p>
+
+<p>
+    {% highlight js %}
+    (function(){
+        var your_script;
+    })();
+    {% endhighlight %}
+</p>
+
+<p>
+    Using the same 'immediately invoked function' you can get a hold of an
+    undefined variable which is `undefined`
+</p>
+
+<p>
+    {% highlight js %}
+    (function(undefined){
+        var your_script;
+        // now you compare for `undefined` using:
+        if (your_script === undefined){
+            // ...
+        }
+    })();
+    {% endhighlight %}
+</p>
+
+<p>
+    Map and Reduce:
+</p>
+
+<p>
+    {% highlight js %}
+    var l = [21,49,80,43,59];
+    var doubled = l.map(function(d){
+        return d*2;
+    });
+    
+    var max_value = doubled.reduce(function(a,b){
+        return a > b ? a : b;
+    }, 0);
+    {% endhighlight %}
+</p>
+
+<p>
+    Augmenting an array of elements with forEach
+</p>
+
+<p>
+    {% highlight js %}
+    var l = [
+        {id: 3, first_name: 'john', last_name: 'doe'},
+        {id: 4, first_name: 'bill', last_name: 'masset'}
+    ];
+
+    l.forEach(function(o){
+        o.full_name = o.first_name + ' ' + o.last_name;
+    });
+    {% endhighlight %}
+</p>
+
+<p>
+    Objects, the right way
+</p>
+
+<p>
+    {% highlight js %}
+    var object_factory = function(params){
+        var hidden_property = 42;
+        var built_with_params,
+            etc;
+
+        var hidden_func = function(m,n){
+            return m > n;
+        };
+
+        return {
+            public_method: function(){
+                return hidden_property;
+            }
+            another: function(m,n){
+                hidden_func(m,n);
+            }
+        }
+    };
+    {% endhighlight %}
+</p>
