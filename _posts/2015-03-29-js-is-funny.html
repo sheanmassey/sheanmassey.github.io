@@ -93,3 +93,15 @@ var object_factory = function(params){
 };
 {% endhighlight %}
 </p>
+
+<p>
+    Arrays are objects, too
+</p>
+
+<p>
+{% highlight js %}
+var l = [1,2,3,4,5];
+
+l.total = l.reduce(function(a,b){ return a + b; }, 0);
+{% endhighlight %}
+</p>
