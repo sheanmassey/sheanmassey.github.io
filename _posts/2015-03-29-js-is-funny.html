@@ -110,3 +110,12 @@ l.total = l.reduce(function(a,b){ return a + b; }, 0);
     <i class="fa fa-exclamation-triangle"></i>
     So comparing equality also acts like objects, not primitive lists
 </p>
+
+<p>
+{% highlight js %}
+> [] == []
+false
+> ['a'] == ['a']
+false
+{% endhighlight %}
+</p>
