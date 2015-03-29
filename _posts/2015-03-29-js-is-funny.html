@@ -8,11 +8,11 @@ tags: javascript
 </p>
 
 <p>
-    {% highlight js %}
-    (function(){
-        var your_script;
-    })();
-    {% endhighlight %}
+{% highlight js %}
+(function(){
+    var your_script;
+})();
+{% endhighlight %}
 </p>
 
 <p>
@@ -21,15 +21,15 @@ tags: javascript
 </p>
 
 <p>
-    {% highlight js %}
-    (function(undefined){
-        var your_script;
-        // now you compare for `undefined` using:
-        if (your_script === undefined){
-            // ...
-        }
-    })();
-    {% endhighlight %}
+{% highlight js %}
+(function(undefined){
+    var your_script;
+    // now you compare for `undefined` using:
+    if (your_script === undefined){
+        // ...
+    }
+})();
+{% endhighlight %}
 </p>
 
 <p>
@@ -37,16 +37,16 @@ tags: javascript
 </p>
 
 <p>
-    {% highlight js %}
-    var l = [21,49,80,43,59];
-    var doubled = l.map(function(d){
-        return d*2;
-    });
-    
-    var max_value = doubled.reduce(function(a,b){
-        return a > b ? a : b;
-    }, 0);
-    {% endhighlight %}
+{% highlight js %}
+var l = [21,49,80,43,59];
+var doubled = l.map(function(d){
+    return d*2;
+});
+
+var max_value = doubled.reduce(function(a,b){
+    return a > b ? a : b;
+}, 0);
+{% endhighlight %}
 </p>
 
 <p>
@@ -54,16 +54,16 @@ tags: javascript
 </p>
 
 <p>
-    {% highlight js %}
-    var l = [
-        {id: 3, first_name: 'john', last_name: 'doe'},
-        {id: 4, first_name: 'bill', last_name: 'masset'}
-    ];
+{% highlight js %}
+var l = [
+    {id: 3, first_name: 'john', last_name: 'doe'},
+    {id: 4, first_name: 'bill', last_name: 'masset'}
+];
 
-    l.forEach(function(o){
-        o.full_name = o.first_name + ' ' + o.last_name;
-    });
-    {% endhighlight %}
+l.forEach(function(o){
+    o.full_name = o.first_name + ' ' + o.last_name;
+});
+{% endhighlight %}
 </p>
 
 <p>
@@ -71,24 +71,24 @@ tags: javascript
 </p>
 
 <p>
-    {% highlight js %}
-    var object_factory = function(params){
-        var hidden_property = 42;
-        var built_with_params,
-            etc;
+{% highlight js %}
+var object_factory = function(params){
+    var hidden_property = 42;
+    var built_with_params,
+        etc;
 
-        var hidden_func = function(m,n){
-            return m > n;
-        };
-
-        return {
-            public_method: function(){
-                return hidden_property;
-            }
-            another: function(m,n){
-                hidden_func(m,n);
-            }
-        }
+    var hidden_func = function(m,n){
+        return m > n;
     };
-    {% endhighlight %}
+
+    return {
+        public_method: function(){
+            return hidden_property;
+        },
+        another: function(m,n){
+            hidden_func(m,n);
+        }
+    }
+};
+{% endhighlight %}
 </p>
