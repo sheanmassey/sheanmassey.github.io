@@ -33,7 +33,7 @@ tags: javascript
 </p>
 
 <p>
-    Map and Reduce:
+    Map and Reduce
 </p>
 
 <p>
@@ -47,6 +47,24 @@ var doubled = l.map(function(d){
 var max_value = doubled.reduce(function(a,b){
     return a > b ? a : b;
 }, 0);
+{% endhighlight %}
+</p>
+
+<p>
+    Filter
+</p>
+
+<p>
+{% highlight js %}
+var l = [
+    {id: 5, username: 'bill', age: 32},
+    {id: 6, username: 'john', age: 24},
+    {id: 7, username: 'brad', age: 17}
+];
+
+var adults = l.filter(function(o){
+    return o.age >= 18;
+});
 {% endhighlight %}
 </p>
 
