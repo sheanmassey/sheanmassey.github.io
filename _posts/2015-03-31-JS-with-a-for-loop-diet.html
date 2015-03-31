@@ -32,3 +32,37 @@ var newList = original.map(function(o){
         </p>
     </div>
 </div>
+
+<p>
+    Iterating over an objects keys
+</p>
+
+<div class="row">
+    <div class="col-sm-6">
+        <p>
+{% highlight js %}
+var obj = {a: 1, b: 2, c: 3},
+    k, v;
+
+for (k in obj) {
+    if (obj.hasOwnProperty(k)) {
+        v = obj[k];
+        // ...
+    }
+}
+{% endhighlight %}
+        </p>
+    </div>
+    <div class="col-sm-6">
+        <p>
+{% highlight js %}
+var obj = {a: 1, b: 2, c: 3};
+
+Object.keys(obj).map(function(k){
+    var v = obj[k];
+    // ...
+});
+{% endhighlight %}
+        </p>
+    </div>
+</div>
