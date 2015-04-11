@@ -3,7 +3,7 @@ layout: post
 ---
 
 <script>
-(function(){
+(function(undefined){
     var Neuron = function(activationThreshold) {
         var activationThreshold = activationThreshold || 0;
         var weights = [];
@@ -24,6 +24,7 @@ layout: post
         };
     };
 
+
     var Layer = function(neurons) {
         return {
             getNeurons: function() {
@@ -35,6 +36,7 @@ layout: post
         };
     };
 
+
     var Network = function(layers, weightMatrix) {
         if (layers.length <= 1) {
             throw 'you need at least 2 children';
@@ -42,6 +44,7 @@ layout: post
 
         var weightMatrix = weightMatrix || layers.splice(1).map(function(layer, i){
             var prevLayer = layers[i-1];
+
             return prevLayer.getNeurons().map(function(neuron, neuronIndex){
                 return layout.map(function(currentNeuron, currentNeuronIndex){
                     return ( Math.random() * 2 ) - 1;
@@ -49,7 +52,7 @@ layout: post
             });
         });
 
-        console.log(weightMatrix);
+        // console.log(weightMatrix);
 
         var prevLayer = layers[0];
 
@@ -81,6 +84,7 @@ layout: post
         };
     };
 
+
     var Actor = function(network) {
         var network = network || Network([
             Layer([Neuron(), Neuron()]),
@@ -100,7 +104,6 @@ layout: post
             },
             step: function(){
                 var outputs = network.process([0.1,0.31]);
-                
             },
             advance: function(){
                 
@@ -114,43 +117,45 @@ layout: post
         };
     };
 
-    var World = function(){
-        var population = [],
-            width = 900,
-            height = 500,
-            i;
 
+    var Population = function(actors) {
+        var actors = actors || [];
+        
         return {
-            setPopulation: function(p) {
-                population = p;
+            populate: function(size){
+                actors = [];
+                for (var i = 0; i < size; i++){
+                    actors.push(Actor());
+                }
+            },
+            getActors: function(){
+                return actors;
             }
         };
     };
 
-    var Population = function(networks) {
-        var networks = networks || [];
+
+    var World = function(population, config){
+        var population = population || Population(),
+            config = config || {},
+            config.width = config.width || 900,
+            config.height = config.height || 500;
 
         return {
-            addNetwork: function(nw) {
-                networks.push(nw);
-            },
-            random: function(size){
-                
-            },
-            applyMutations: function(mutation_rate){
-                mutation_rate = mutation_rate || 0.1;
+            populate: function(population_size) {
+                population.populate(population_size);
+                population.getActors().forEach(function(a){
+                    console.log(this);
+                    a.setWorld(this);
+                });
             }
         };
     };
 
-    var main = function() {
-        var network = Network([
-            Layer([Neuron(), Neuron()]),
-            Layer([Neuron(), Neuron(), Neuron()]),
-            Layer([Neuron(), Neuron()])
-        ]);
-    };
 
-    main();
+    (function() {
+        world = World();
+        world.populate(16);
+    })();
 })();
 </script>
