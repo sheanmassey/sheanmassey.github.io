@@ -1,0 +1,156 @@
+---
+layout: post
+---
+
+<script>
+(function(){
+    var Neuron = function(activationThreshold) {
+        var activationThreshold = activationThreshold || 0;
+        var weights = [];
+
+        return {
+            hitsThreshold: function(i) {
+                return i >= activationThreshold;
+            },
+            getWeights: function() {
+                return weights;
+            },
+            initRandomWeights: function(count) {
+                for (var c = 0; c < count; c++) {
+                    // @TODO push random
+                    weights.push(0);
+                }
+            }
+        };
+    };
+
+    var Layer = function(neurons) {
+        return {
+            getNeurons: function() {
+                return neurons;
+            },
+            getNeuron: function(i) {
+                return neurons[i];
+            }
+        };
+    };
+
+    var Network = function(layers, weightMatrix) {
+        if (layers.length <= 1) {
+            throw 'you need at least 2 children';
+        }
+
+        var weightMatrix = weightMatrix || layers.splice(1).map(function(layer, i){
+            var prevLayer = layers[i-1];
+            return prevLayer.getNeurons().map(function(neuron, neuronIndex){
+                return layout.map(function(currentNeuron, currentNeuronIndex){
+                    return ( Math.random() * 2 ) - 1;
+                });
+            });
+        });
+
+        console.log(weightMatrix);
+
+        var prevLayer = layers[0];
+
+        for (var i = 1; i < layers.length; i++) {
+            var currentLayer = layers[i];
+            for (var n = 0; n < prevLayer.length; n++) {
+                prevLayer.getNeuron(n).initRandomWeights(currentLayer.length);
+            }
+            prevLayer = currentLayer;
+        }
+
+        return {
+            breedWith: function(partner){
+                
+            },
+            process: function(inputs){
+                var outputs = [],
+                    last_inputs = inputs,
+                    i;
+
+                for (i = 1; i < layers.length; i++) {
+                    var l = layers[i];
+                    tmp = Array(l.length);
+                    last_inputs = tmp;
+                }
+
+                return outputs;
+            }
+        };
+    };
+
+    var Actor = function(network) {
+        var network = network || Network([
+            Layer([Neuron(), Neuron()]),
+            Layer([Neuron(), Neuron(), Neuron()]),
+            Layer([Neuron(), Neuron()]),
+        ]);
+
+        var world,
+            position = {x: 0, y: 0, direction: 0};
+
+        return {
+            setWorld: function(w) {
+                world = w;
+            },
+            getNetwork: function(){
+                return network;
+            },
+            step: function(){
+                var outputs = network.process([0.1,0.31]);
+                
+            },
+            advance: function(){
+                
+            },
+            turnRight: function(){
+                
+            },
+            turnLeft: function(){
+                
+            }
+        };
+    };
+
+    var World = function(){
+        var population = [],
+            width = 900,
+            height = 500,
+            i;
+
+        return {
+            setPopulation: function(p) {
+                population = p;
+            }
+        };
+    };
+
+    var Population = function(networks) {
+        var networks = networks || [];
+
+        return {
+            addNetwork: function(nw) {
+                networks.push(nw);
+            },
+            random: function(size){
+                
+            },
+            applyMutations: function(mutation_rate){
+                mutation_rate = mutation_rate || 0.1;
+            }
+        };
+    };
+
+    var main = function() {
+        var network = Network([
+            Layer([Neuron(), Neuron()]),
+            Layer([Neuron(), Neuron(), Neuron()]),
+            Layer([Neuron(), Neuron()])
+        ]);
+    };
+
+    main();
+})();
+</script>
