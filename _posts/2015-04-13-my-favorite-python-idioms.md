@@ -57,6 +57,7 @@ Running the above results in `doubled = 10` and `tripled = 15`. It's no where cl
 it's a lot nicer than the PHP version where you must "pack and unpack" the values into a list:
 
 {% highlight php %}
+<?php
 function my_function($v) {
     return [ $v * 2, $v * 3 ];
 }
