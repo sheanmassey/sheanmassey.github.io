@@ -10,8 +10,8 @@ fanatic I'll have a very hard time expressing my disgust of either let alone bot
 computing altogther, move to some remote location, and become a farmer..
 
 I'd like to use this page to collect some of the most common tasks, work arounds, or what not as a form of personal documentation. 
-Thankfully I don't need to touch MS servers daily but unfortunately that also means that I frequently forget how I did X or Y, `that
-one time`.
+Thankfully I don't need to touch MS servers daily but unfortunately that also means that I frequently forget how I did X or Y, *that
+one time*.
 
 ### Creating an OOO message for a user
 
