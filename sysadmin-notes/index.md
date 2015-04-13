@@ -2,7 +2,7 @@
 layout: post
 ---
 
-# Random notes from a developer playing the role of a Windows Sysadmin
+# Random notes from a developer pretending to be a Windows Sysadmin
 
 Over the past year I've been responsible for all the IT tasks in a classic Microsoft environment for a small company (<40 users).
 Upon my arrival I was introduced for the first time to MS Exchange Server and MS Active Directory. As a Linux and FOSS
