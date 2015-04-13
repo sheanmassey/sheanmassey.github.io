@@ -56,7 +56,7 @@ doubled, tripled = my_function(5)
 Running the above results in `doubled = 10` and `tripled = 15`. It's no where close to as powerful as the matching done in `erlang` but
 it's a lot nicer than the PHP version where you must "pack and unpack" the values into a list:
 
-{% highlight python %}
+{% highlight php %}
 function my_function($v) {
     return [ $v * 2, $v * 3 ];
 }
