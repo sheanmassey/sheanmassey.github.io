@@ -1,0 +1,70 @@
+---
+title: sheanmassey
+layout: page
+---
+
+<div class="jumbotron">
+    <!--<h1>{{ site.title }}</h1>-->
+    <h1 id="blog_title">code. hack <span id="title_it">it</span>.</h1>
+    <p class="nice-font">this is my blog. there are many like it but this one is mine.</p>
+</div>
+
+<div class="row">
+    <div class="col-sm-8">
+
+        <!--
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>conways game of life with d3js</h3>
+                <a href="/demos/d3js-fullscreen.html">
+                    <div class="post-image" style="background-image:url('img/0001.png')"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>schellings dynamic segregation models</h3>
+
+                <a href="/demos/d3js-list-grid.html">
+                    <div class="post-image" style="background-image:url('img/0002.png')"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>random dots, interactive background</h3>
+
+                <a href="/demos/d3js-dots.html">
+                    <div class="post-image" style="background-image:url('img/0003.png')"></div>
+                </a>
+            </div>
+        </div>
+        -->
+
+        <p>
+        Hello. My name is Shean. I like to program machines of all shapes and sizes to make them perform
+        all sorts of tasks. This is more of a personal collection of notes than a blog so.. that's my excuse
+        for the half written articles, unfinished demos, and lack of navigation functions. Deal with it :-)
+        </p>
+
+    </div>
+
+    <div class="col-sm-4">
+        <h3>cat /dev/urandom</h3>
+
+        <ul class="list-unstyled">
+            {% for post in site.posts %}
+            <li>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+
+                {% if post.tags %}
+                    tags: {{ post.tags|join:', ' }}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
