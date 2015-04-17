@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title></title>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="/libs/parallax.js-1.3/parallax.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <!-- for syntax highlighting with jekyll / pygments. this must be included after boostsrap -->
+        <link rel="stylesheet" href="/css/monokai.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> -->
+
+        <link rel="stylesheet" href="/libs/font-awesome-4.2.0/css/font-awesome.css">
+
+        <style>
+            * {
+                font-family: 'Droid Sans', sans;
+            }
+            section {
+                display: table;
+                height: 100vh;
+                min-width: none;
+                width: 100%;
+            }
+            nav.navbar-inverse {
+                background-image: none;
+                background-color: #333;
+            }
+            .intro {
+                height: 83vh;
+                /* background-color: #333; */
+                color: white;
+            }
+            .intro h1 {
+                font-size: 63px;
+            }
+            .intro p {
+                font-size: 23px;
+            }
+            .intro .my-icon-bar {
+                font-size: 50px;
+                text-align: center;
+            }
+            .intro .col-sm-12,
+            .intro-footer .col-xs-6 {
+                font-size: 63px;
+                text-align: center;
+            }
+            .intro-footer {
+                height: 17vh;
+            }
+            .content {
+                display: table-cell;
+                vertical-align: middle;
+                padding: 0 7%;
+            }
+            p { color: #bbb; }
+            .blue {
+                background-color: lightblue;
+                color: white;
+                color: #333;
+            }
+            .blue p {
+                color: #333;
+            }
+            .my-scroll-to {
+                text-decoration: none;
+                color: inherit;
+            }
+            .my-scroll-to:hover {
+                text-decoration: none;
+            }
+
+            .parallax-window {
+                min-height: 200px;
+                background: transparent;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"
+            id="my-navbar" style="display:none">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-collapse-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/" class="nice-font">sheanmassey.github.io</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="my-collapse-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="menu-icon my-scroll-to" href="#top-sec">
+                                reboot
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-icon my-scroll-to" href="#whoami">
+                                whoami
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-icon my-scroll-to" href="#dev-random">
+                                /dev/random
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="intro" id="top-sec">
+            <div class="parallax-window content"
+
+                style="min-height: 90vh;
+                      background: rgba(51,51,51,.6);"
+                
+                data-parallax="scroll"
+                data-image-src="http://placekitten.com/g/2000/2000"
+                data-natural-width="2000"
+                data-natural-height="2000">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 my-icon-bar">
+                            <span style="margin:auto; display:inline-block">
+                                <i class="fa fa-github"></i>
+                                <i class="fa fa-linkedin-square"></i>
+                                <i class="fa fa-stack-exchange"></i>
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1>sheanmassey.github.io</h1>
+                            <p>code. hack it.</p>
+                        </div>
+                    </div>
+                    <div style="padding-top: 100px"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="intro-footer">
+            <div class="container" id="intro-footer">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="#dev-random" class="my-scroll-to">
+                            <button class="btn btn-lg btn-primary" style="width:100%">
+                                /dev/random
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a href="#whoami" class="my-scroll-to">
+                            <button class="btn btn-lg btn-primary" style="width:100%">
+                                whoami
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="middle-sec">
+            <div class="container">
+                <ul class="list-unstyled">
+                    {% for post in site.posts %}
+                    <li>
+                        <h1>
+                            <a href="{{ post.url }}">{{ post.title }}</a>
+                        </h1>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+        <!--
+        <div class="parallax-window" data-parallax="scroll" data-image-src="http://placekitten.com/g/2000/600"
+            data-natural-width="2000"
+            data-natural-height="600"
+            ></div>
+        -->
+
+        <section class="my-barpad" id="bottom-sec">
+
+            <div class="container" id="dev-random">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>IT'S ALL ABOUT ME!!1!</h1>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" ng-app="app">
+                <div ui-view></div>
+            </div>
+
+        </section>
+
+        <script>
+            $(document).ready(function(){
+                $(".my-scroll-to").click(function(){
+                    var target = $(this.hash);
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 750);
+                    return false;
+                });
+
+                $(window).scroll(function(){
+                    var footer_top = $("#intro-footer").offset().top;
+                    if ( $(this).scrollTop() >= footer_top ) {
+                        $("#my-navbar").fadeIn("slow");
+                    } else {
+                        $("#my-navbar").fadeOut("slow");
+                    }
+                });
+
+                $('section.my-barpad').css("padding-top", $("#my-navbar").height() + 20);
+            });
+        </script>
+
+
+        <script src="/libs/angular-1.3.12/angular.js"></script>
+        <script src="/libs/angular-ui-router.js"></script>
+        <script src="/app/app.js"></script>
+        <script src="/app/controllers/homeCtrl.js"></script>
+    </body>
+</html>
