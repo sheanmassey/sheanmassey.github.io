@@ -187,9 +187,13 @@
             <div class="container" id="dev-random">
                 <ul class="list-unstyled">
                     {% for post in site.posts %}
-                    <li>
-                        <a href="{{ post.url }}">{{ post.title }}</a>
-                    </li>
+                    <section>
+                        <h3 href="{{ post.url }}">{{ post.title }}</h3>
+                        <p>
+                            {{ post.content | strip_html | truncatewords:75 }}
+                            <a href="{{ post.url }}">Read more...</a>
+                        </p>
+                    </section>
                     {% endfor %}
                 </ul>
             </div>
