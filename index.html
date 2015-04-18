@@ -221,8 +221,8 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="my-circle">
-                                <h1 class="text-center">{{ post.date | date: "%-d" }}</h1>
-                                <h3 class="text-center">{{ post.date | date: "%b" }}</h3>
+                                <div style="2em;" class="text-center">{{ post.date | date: "%-d" }}</div>
+                                <div style="1.2em;" class="text-center">{{ post.date | date: "%b" }}</h3>
                             </div>
                         </div>
                         <div class="col-sm-9">
@@ -250,7 +250,6 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <h1>IT'S ALL ABOUT ME!!1!</h1>
-                        
                     </div>
                 </div>
             </div>
@@ -258,7 +257,6 @@
             <div class="container" ng-app="app">
                 <div ui-view></div>
             </div>
-
         </section>
 
         <div class="container-fluid" style="min-height: 100px; background-color: #333">
