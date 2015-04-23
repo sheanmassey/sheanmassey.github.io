@@ -5,6 +5,16 @@ layout: post
 
 # A peek into the toolbox we call GNU/Linux
 
+### Linux and files
+
+One of the best (and potentially alien) things about linux is it's use of files. In linux *everything*
+is a file. Your ethernet card is seen as a file, your directories are just files, your bluetooth
+keyboard is a file, and even the connection of your browser to this very web page is a file, 
+and of course your files are files. 
+
+By that I mean that everything can be maniputated as if it were a file (open/read/write/close) and 
+that you will find an entry point for it somewhere under your root mount point `/`.
+
 ### Bash meta variables
 
 {% highlight bash %}
