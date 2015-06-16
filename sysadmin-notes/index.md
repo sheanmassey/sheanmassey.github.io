@@ -8,7 +8,7 @@ layout: post
 Over the past year I've been responsible for all the IT tasks in a classic Microsoft environment for a small company (<40 users).
 Upon my arrival I was introduced for the first time to MS Exchange Server and MS Active Directory. As a Linux and FOSS
 fanatic I'll have a very hard time expressing my disgust of either let alone both through writing. They make me want to quit
-computing altogther, move to some remote location, and become a farmer..
+computing altogther, move to some remote location, and start a farm.
 
 I'd like to use this page to collect some of the most common tasks, work arounds, or what not as a form of personal documentation. 
 Thankfully I don't need to touch MS servers daily but unfortunately that also means that I frequently forget how I did X or Y, *that
