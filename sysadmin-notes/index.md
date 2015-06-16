@@ -2,6 +2,7 @@
 layout: post
 ---
 
+
 # Random notes from a developer pretending to be a Windows Sysadmin
 
 Over the past year I've been responsible for all the IT tasks in a classic Microsoft environment for a small company (<40 users).
@@ -28,4 +29,27 @@ If you have the users credentials setting the OOO message is easy. If you don't 
 - Log into your account via OWA, click on your username (top right) and from the dropdown select "Open another mailbox"
 - Once you've openned the users mailbox you can set the OOO messages
 - Finally, don't forget to revoke your user from the Full Access permission lists
+
+### Shared Mailboxes
+
+Exchange 2010: there is no option in the Exchange Server GUI to create shared mailboxes, they must be created in the Shell:
+
+    New-Mailbox -Name "Display Name" -Alias "display.name" -OrganizationalUnit "<OU>" -Database "<Database>" -UserPrincipalName "display.name@email.com" -Shared
+
+To list the current Mailbox Databases:
+
+    Get-MailboxDatabase -Status | Format-Table Name
+
+After the shared mailbox is created it becomes visible in the GUI. Adding Send-As and Full-Access permissions is possible via the GUI, or it can be scripted with:
+
+    Add-MailboxPermission <Mailbox Name> -User "<domain\username>" -AccessRights FullAccess
+    Add-ADPermission <Mailbox Name> -User "<domain\username>" -ExtendedRights Send-As
+
+Finally, the shared mailbox will only show up the next day unless you explicitly import the mailbox in outlook:
+
+    # For Outlook 2013
+    File -> Account Settings -> Account Settings... -> E-mail -> Change... -> More Settings... -> Advanced -> Add...
+    # Lookup the new mailbox by name and "Apply".
+
+### GPO for permission management
 
