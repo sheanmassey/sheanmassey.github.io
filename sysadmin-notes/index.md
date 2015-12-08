@@ -14,6 +14,12 @@ I'd like to use this page to collect some of the most common tasks, work arounds
 Thankfully I don't need to touch MS servers daily but unfortunately that also means that I frequently forget how I did X or Y, *that
 one time*.
 
+### Shortcut limitations (at least Windows 7):
+
+Your shortcuts can be deleted for no good reason other than they were temporarily unavailable...
+
+https://support.microsoft.com/en-us/kb/978980
+
 ### Creating an OOO message for a user
 
 We all forget from time to time, and especially when you have holidays comming up, you've got nicer things to think
@@ -53,3 +59,9 @@ Finally, the shared mailbox will only show up the next day unless you explicitly
 
 ### GPO for permission management
 
+...
+
+### Using a `Public Folders` contacts list in Outlook 2013 (+2007)
+
+Documentation will always point you to click `Address Book` -> `Tools` -> `Options` ... as seend here: http://www.msoutlook.info/question/262 ..this doesn't work. Instead, do it backwards, start from the shared contacts list.
+Find the Public Folder Contacts List, right click -> Properties -> Address Book -> Check the `Show in address book`.
